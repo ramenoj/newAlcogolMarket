@@ -2,6 +2,6 @@
 {
     public class Alcogol
     {
-        
+        public int id { get; set; }
     }
 }
