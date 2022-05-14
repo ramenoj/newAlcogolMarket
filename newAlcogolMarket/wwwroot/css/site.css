@@ -13,8 +13,10 @@ a {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background: #2E005C;
+
 }
 
 body {
@@ -26,6 +28,43 @@ body {
 
 header {
     background: #5C00A5;
-    
+    box-shadow: 0 0 10px rgb(0, 255, 33);
+
 }
- 
+a:hover {
+    color: blueviolet
+}
+
+li :hover {
+    color:  gold
+}
+
+img :hover {
+    filter:  invert(100%)
+}
+
+.use-1 {
+    background: #5C00A5;
+}
+
+    .use-1 button {
+        background: url('https://cdn-icons-png.flaticon.com/512/4296/4296591.png') no-repeat;
+        
+        border-radius: 50%;
+        border: 0;
+    }
+
+.use-2 {
+    background: #5C00A5;
+}
+
+    .use-2 button {
+        background: transparent;
+        border-radius: 50%;
+        border: 0;
+    }
+
+
+button:hover {
+    cursor: pointer;
+}
