@@ -89,3 +89,86 @@ h1 {
 li {
     text-align: left;
 }
+
+.nav-link1 {
+    position: absolute;
+    top: 7.6%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+
+.nav-link2 {
+    position: absolute;
+    top: 12.8%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link3 {
+    position: absolute;
+    top: 18%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link4 {
+    position: absolute;
+    top: 23.2%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link5 {
+    position: absolute;
+    top: 28.4%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link6 {
+    position: absolute;
+    top: 33.6%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link7 {
+    position: absolute;
+    top: 38.8%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link8 {
+    position: absolute;
+    top: 44%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
+.nav-link9 {
+    position: absolute;
+    top: 49.2%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+}
