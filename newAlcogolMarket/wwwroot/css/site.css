@@ -65,6 +65,27 @@ img :hover {
     }
 
 
-button:hover {
+.nav-link button:hover {
     cursor: pointer;
+    filter: invert(100%);
+}
+
+p {
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.nav-link2 button:hover {
+    cursor: pointer;
+    
+    float: left;
+}
+
+li {
+    text-align: left;
 }
