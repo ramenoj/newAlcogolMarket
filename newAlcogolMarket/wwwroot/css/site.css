@@ -82,33 +82,43 @@ h1 {
 
 .nav-link1 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link2 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link3 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link4 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link5 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link6 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link7 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link8 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link9 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 .nav-link10 button:hover {
     color: gold;
+    filter: invert(15%);
 }
 li {
     text-align: left;
@@ -284,7 +294,7 @@ li {
 }
 
 .product:hover {
-     filter: invert(40%);
+     filter: invert(15%);
 }
 h3{
     color: white;
