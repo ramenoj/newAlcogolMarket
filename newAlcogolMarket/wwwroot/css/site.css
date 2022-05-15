@@ -80,17 +80,41 @@ h1 {
     text-align: center;
 }
 
-.nav-link2 button:hover {
-    cursor: pointer;
-    
-    float: left;
+.nav-link1 button:hover {
+    color: gold;
 }
-
+.nav-link2 button:hover {
+    color: gold;
+}
+.nav-link3 button:hover {
+    color: gold;
+}
+.nav-link4 button:hover {
+    color: gold;
+}
+.nav-link5 button:hover {
+    color: gold;
+}
+.nav-link6 button:hover {
+    color: gold;
+}
+.nav-link7 button:hover {
+    color: gold;
+}
+.nav-link8 button:hover {
+    color: gold;
+}
+.nav-link9 button:hover {
+    color: gold;
+}
+.nav-link10 button:hover {
+    color: gold;
+}
 li {
     text-align: left;
 }
 
-.nav-link1 {
+.nav-link1 button {
     position: absolute;
     top: 7.6%;
     left: 0px;
@@ -101,9 +125,10 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
 
-.nav-link2 {
+.nav-link2 button {
     position: absolute;
     top: 12.8%;
     left: 0px;
@@ -114,8 +139,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link3 {
+.nav-link3 button {
     position: absolute;
     top: 18%;
     left: 0px;
@@ -126,8 +152,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link4 {
+.nav-link4 button {
     position: absolute;
     top: 23.2%;
     left: 0px;
@@ -138,8 +165,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link5 {
+.nav-link5 button {
     position: absolute;
     top: 28.4%;
     left: 0px;
@@ -150,8 +178,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link6 {
+.nav-link6 button {
     position: absolute;
     top: 33.6%;
     left: 0px;
@@ -162,8 +191,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link7 {
+.nav-link7 button {
     position: absolute;
     top: 38.8%;
     left: 0px;
@@ -174,8 +204,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link8 {
+.nav-link8 button {
     position: absolute;
     top: 44%;
     left: 0px;
@@ -186,8 +217,9 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
 }
-.nav-link9 {
+.nav-link9 button {
     position: absolute;
     top: 49.2%;
     left: 0px;
@@ -198,4 +230,64 @@ li {
     color: #00A82F;
     font-weight: bold;
     box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
+}
+
+.nav-link10 button {
+    position: absolute;
+    top: 54.4%;
+    left: 0px;
+    width: 10%;
+    height: 6%;
+    margin-bottom: 10px;
+    background: #5C00A5;
+    color: #00A82F;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgb(0, 255, 33);
+    display: block;
+}
+
+.product-wrapper {
+    display: block;
+    width: 100%;
+    float: left;
+    transition: width .2s;
+}
+@media only screen and (min-width: 450px) {
+    .product-wrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .product-wrapper {
+        width: 33.333%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .product-wrapper {
+        width: 25%;
+    }
+}
+.product {
+    display: block;
+    border: 1px solid #b5e9a7;
+    border-radius: 3px;
+    position: relative;
+    background: #5C00A5;
+    margin: 0 20px 20px 0;
+    text-decoration: none;
+    color: #474747;
+    z-index: 0;
+    height: 300px;
+}
+
+.product:hover {
+     filter: invert(40%);
+}
+h3{
+    color: white;
+    position: relative;
+    left: 30px;
 }
