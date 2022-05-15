@@ -1,14 +1,7 @@
-﻿@model IEnumerable<newAlcogolMarket.Models.Category.Absent>
+﻿
  
 <h2>Список пользователей</h2>
 <p><a asp-action="Create">Добавить пользователя</a></p>
 <table class="table">
-     <tr><th>Имя</th><th>Цена</th></tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.price</td>
-        </tr>
-    }
+    
 </table>

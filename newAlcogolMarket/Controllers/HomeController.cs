@@ -1,34 +1,32 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using newAlcogolMarket.Models;
-using newAlcogolMarket.Models.Category;
+﻿using newAlcogolMarket.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace newAlcogolMarket.Controllers
+namespace HelloMvcApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILogger<HomeController> _logger;
 
-        ApplicationContext db;
-        public HomeController(ApplicationContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
-            db = context;
+            _logger = logger;
         }
 
-        public async Task<IActionResult> Index()
-        {
-            return View(await db.Absents.ToListAsync());
-        }
-        public IActionResult Create()
+        public IActionResult Index()
         {
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> Create(Absent absent)
+
+        public IActionResult Privacy()
         {
-            db.Absents.Add(absent);
-            await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

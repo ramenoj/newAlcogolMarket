@@ -1,10 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using newAlcogolMarket.Models.Alcogol;
+using newAlcogolMarket.Models.Alcogol.Category;
 using newAlcogolMarket.Models.Category;
 
 namespace newAlcogolMarket.Models
 {
     public class ApplicationContext : DbContext
     {
+
+        public DbSet<CategoryofAlcogol> CategoryofAlcogol { get; set; }
         public DbSet<Absent> Absents { get; set; } = null!;
         public DbSet<Beer> Beers { get; set; } = null!;
         public DbSet<Champagne> Champagnes { get; set; } = null!;
