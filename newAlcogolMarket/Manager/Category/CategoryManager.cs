@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using newAlcogolMarket.Models;
-using newAlcogolMarket.Models.Alcogol;
+using newAlcogolMarket.Models.Entity;
 
 namespace newAlcogolMarket.Manager
 {
@@ -18,7 +18,6 @@ namespace newAlcogolMarket.Manager
             _context.CategoryofAlcogol.Add(category);
             await _context.SaveChangesAsync();
         }
-
         public  async Task Delete(int Id)
         {
            var category= _context.CategoryofAlcogol.FirstOrDefault(c => c.Id == Id);
@@ -28,8 +27,5 @@ namespace newAlcogolMarket.Manager
                 await _context.SaveChangesAsync();
             }
         }
-
-        
-
     }
 }

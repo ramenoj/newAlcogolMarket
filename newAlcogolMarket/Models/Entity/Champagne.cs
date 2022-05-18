@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace newAlcogolMarket.Models.Alcogol.Category
+namespace newAlcogolMarket.Models.Entity
 {
-    public class Whiski
+    public class Champagne
     {
         [Key]
         public int Id { get; set; }
@@ -16,6 +16,5 @@ namespace newAlcogolMarket.Models.Alcogol.Category
         public int CategoryId { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public virtual CategoryofAlcogol Category { get; set; }
-
     }
 }

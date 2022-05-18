@@ -1,14 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using newAlcogolMarket.Models.Alcogol;
-using newAlcogolMarket.Models.Alcogol.Category;
-using newAlcogolMarket.Models.Category;
+using newAlcogolMarket.Models.Entity;
 
 namespace newAlcogolMarket.Models
 {
     public class ApplicationContext : DbContext
     {
-
-        public DbSet<CategoryofAlcogol> CategoryofAlcogol { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<CategoryofAlcogol> CategoryofAlcogol { get; set; } = null!;
         public DbSet<Absent> Absents { get; set; } = null!;
         public DbSet<Beer> Beers { get; set; } = null!;
         public DbSet<Champagne> Champagnes { get; set; } = null!;
@@ -20,8 +18,6 @@ namespace newAlcogolMarket.Models
         public DbSet<Whiski> Whiskis { get; set; } = null!;
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
-        {
-            
-        }
+        {}
     }
 }

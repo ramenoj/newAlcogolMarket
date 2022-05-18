@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using newAlcogolMarket.Manager;
 using newAlcogolMarket.Models;
-using newAlcogolMarket.Models.Alcogol;
+using newAlcogolMarket.Models.Entity;
 
 namespace newAlcogolMarket.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace newAlcogolMarket.Models.Category
+﻿namespace newAlcogolMarket.Models.Entity
 {
     public class Snack
     {

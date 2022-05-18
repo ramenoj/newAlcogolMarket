@@ -1,4 +1,4 @@
-﻿using newAlcogolMarket.Models.Alcogol;
+﻿using newAlcogolMarket.Models.Entity;
 
 namespace newAlcogolMarket.Manager
 {

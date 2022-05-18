@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace newAlcogolMarket.Models.Alcogol
+namespace newAlcogolMarket.Models.Entity
 {
     public class CategoryofAlcogol
     {
