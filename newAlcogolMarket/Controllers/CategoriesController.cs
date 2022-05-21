@@ -7,8 +7,8 @@ namespace newAlcogolMarket.Controllers
 {
     public class CategoriesController : Controller
     {
-        private readonly ICategoryManager _manager;
-        public CategoriesController(ICategoryManager manager)
+        private readonly IAbsentManager _manager;
+        public CategoriesController(IAbsentManager manager)
         {
             _manager = manager;
         }

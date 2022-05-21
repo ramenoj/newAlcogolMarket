@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using newAlcogolMarket.Models;
+﻿using newAlcogolMarket.Models;
 using newAlcogolMarket.Models.Entity;
 
 namespace newAlcogolMarket.Manager
 {
-    public class CategoryManager:ICategoryManager
+    public class AbsentManager:IAbsentManager
     {
         private readonly ApplicationContext _context;
-        public CategoryManager (ApplicationContext context)
+        public AbsentManager (ApplicationContext context)
         {
             _context = context;
         }

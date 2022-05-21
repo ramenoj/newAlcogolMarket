@@ -1,10 +1,11 @@
 ﻿namespace newAlcogolMarket.Models.Entity
 {
-    public class Snack
+    public class Size
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public ushort Price { get; set; }
-        public ushort Weight { get; set; }
+        public double Volume { get; set; }
+
     }
 }

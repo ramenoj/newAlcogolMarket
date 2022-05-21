@@ -22,4 +22,15 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Manager\Beers\" />
+    <Folder Include="Manager\Champagnes\" />
+    <Folder Include="Manager\Vodkas\" />
+    <Folder Include="Manager\Liquors\" />
+    <Folder Include="Manager\Cognacs\" />
+    <Folder Include="Manager\Whiskey\" />
+    <Folder Include="Manager\Snacks\" />
+    <Folder Include="Manager\Wines\" />
+  </ItemGroup>
+
 </Project>

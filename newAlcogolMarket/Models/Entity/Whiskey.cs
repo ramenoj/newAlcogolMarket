@@ -1,6 +1,6 @@
 ﻿namespace newAlcogolMarket.Models.Entity
 {
-    public class Vodka
+    public class Whiskey
     {
         [Key]
         public int Id { get; set; }
@@ -13,6 +13,7 @@
         public double Size { get; set; }
         public int CountryId { get; set; }
         public string Country { get; set; }
+
 
     }
 }

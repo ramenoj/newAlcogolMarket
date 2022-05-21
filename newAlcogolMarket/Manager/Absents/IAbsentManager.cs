@@ -3,10 +3,10 @@
 namespace newAlcogolMarket.Manager
 {
 
-    public interface ICategoryManager
+    public interface IAbsentManager
     {
 
-        Task<IList<CategoryofAlcogol>> GetAll();
+        Task<IList<Absent>> GetAll();
         Task Create(string Name);
         Task Delete(int Id);
 
