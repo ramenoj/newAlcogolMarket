@@ -5,7 +5,6 @@
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        
         public ushort Price { get; set; }
         public int Degree { get; set; }
         public int DegreeId { get; set; }

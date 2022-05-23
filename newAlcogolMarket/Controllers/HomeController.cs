@@ -1,43 +1,48 @@
-﻿using newAlcogolMarket.Models;
+﻿using newAlcogolMarket.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using newAlcogolMarket.Models;
+using newAlcogolMarket.Manager.Users;
 
 namespace HelloMvcApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IUserManager _manager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IUserManager manager)
         {
-            _logger = logger;
+            _manager = manager;
         }
 
-        [HttpGet]
-        public async Task Index()
+        public async Task<IActionResult> Index()
         {
-            string content = @"<form method='post'>
-                <label>Name:</label><br />
-                <input name='name' /><br />
-                <label>Age:</label><br />
-                <input type='number' name='age' /><br />
-                <input type='submit' value='Send' />
-            </form>";
-            Response.ContentType = "text/html;charset=utf-8";
-            await Response.WriteAsync(content);
+            return View(await db.Users.ToListAsync());
         }
-        [HttpPost]
-        public string Index(string name, int age) => $"{name}: {age}";
-
-        public IActionResult Privacy()
+        public IActionResult SignUp()
         {
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public async Task<IActionResult> SignUp(IUserManager user)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id != null)
+            {
+                User? user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
+                if (user != null)
+                {
+                    db.Users.Remove(user);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+            }
+            return NotFound();
         }
     }
 }

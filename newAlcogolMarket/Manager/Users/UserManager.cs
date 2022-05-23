@@ -5,26 +5,25 @@ namespace newAlcogolMarket.Manager.Users
 {
     public class UserManager:IUserManager
     {
-        ApplicationContext context;
+        ApplicationContext _context;
 
         public UserManager(ApplicationContext context)
         {
-            this.context = context;
+            _context = context;
         }
 
-        public async Task AddUser(User user)
+        public async Task Add(User user)
         {
-            context.Users.Add(user);
-
-            await context.SaveChangesAsync();
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteUser(int id)
+        public async Task Delete(int id)
         {
-            var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
 
-            context.Users.Remove(user);
-            await context.SaveChangesAsync();
+            _context.Users.Remove(user);
+            await _context.SaveChangesAsync();
         }
 
         public async Task<List<User>> Filter(string? login)
@@ -35,24 +34,23 @@ namespace newAlcogolMarket.Manager.Users
             {
                 users = users.Where(u => u.Login == login).ToList();
             }
-
             return users;
         }
 
         public async Task<List<User>> GetAll()
         {
-            return await context.Users.AsNoTracking().ToListAsync();
+            return await _context.Users.AsNoTracking().ToListAsync();
         }
 
-        public User GetUser(User user)
+        public User Get(User user)
         {
-            return context.Users.FirstOrDefault(u => u.Login == user.Login && u.Password == user.Password);
+            return _context.Users.FirstOrDefault(u => u.Login == user.Login && u.Password == user.Password);
         }
 
-        public async Task UpdateUser(User user)
+        public async Task Update(User user)
         {
-            context.Users.Update(user);
-            await context.SaveChangesAsync();
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
         }
     }
 }

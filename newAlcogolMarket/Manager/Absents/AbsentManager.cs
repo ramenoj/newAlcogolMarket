@@ -3,28 +3,41 @@ using newAlcogolMarket.Models.Entity;
 
 namespace newAlcogolMarket.Manager
 {
-    public class AbsentManager:IAbsentManager
+    public class AbsentManager : IAbsentManager
     {
-        private readonly ApplicationContext _context;
-        public AbsentManager (ApplicationContext context)
+        ApplicationContext _context;
+
+        public AbsentManager(ApplicationContext context)
         {
             _context = context;
         }
-        public async Task<IList<CategoryofAlcogol>> GetAll() => await _context.CategoryofAlcogol.ToListAsync();
-        public async Task Create(string name)
+
+        public async Task Add(Absent absent)
         {
-            var category = new CategoryofAlcogol { Name = name };
-            _context.CategoryofAlcogol.Add(category);
+           _context.Add(absent);
             await _context.SaveChangesAsync();
         }
-        public  async Task Delete(int Id)
+
+        public async Task Delete(int id)
         {
-           var category= _context.CategoryofAlcogol.FirstOrDefault(c => c.Id == Id);
-            if(category != null)
-            {
-                _context.CategoryofAlcogol.Remove(category);
-                await _context.SaveChangesAsync();
-            }
+            var absent = await _context.Absents.FirstOrDefaultAsync(x => x.Id == id);
+            _context.Absents.Remove(absent);
+            await _context.SaveChangesAsync();
+        }
+
+        public Task<List<Absent>> Filter(string login)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Absent>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task Update(User user)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,0 +1,16 @@
+﻿@model newAlcogolMarket.Models.Entity.User
+ 
+<h2>Добавление пользователя</h2>
+<form asp-action="create" asp-controller="home">
+    <p>
+        <label asp-for="Login">Логин</label><br />
+        <input type="text" asp-for="Login" />
+    </p>
+    <p>
+        <label asp-for="Password">Пароль</label><br />
+        <input type="number" asp-for="Password" />
+    </p>
+    <p>
+        <input type="submit" value="Отправить" />
+    </p>
+</form>
