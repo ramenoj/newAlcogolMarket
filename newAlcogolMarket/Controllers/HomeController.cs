@@ -8,41 +8,32 @@ namespace HelloMvcApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IUserManager _manager;
-
-        public HomeController(IUserManager manager)
+        private IUserManager _userManager;
+        public HomeController(IUserManager userManager)
         {
-            _manager = manager;
+            _userManager = userManager;
         }
-
         public async Task<IActionResult> Index()
         {
-            return View(await db.Users.ToListAsync());
+            var userGetall = _userManager.GetAll();
+            return View(await userGetall);
         }
         public IActionResult SignUp()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> SignUp(IUserManager user)
+        public async Task<IActionResult> SignUp(User user)
         {
-            
+            await _userManager.Add(user);
             return RedirectToAction("Index");
         }
+
         [HttpPost]
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id != null)
-            {
-                User? user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
-                if (user != null)
-                {
-                    db.Users.Remove(user);
-                    await db.SaveChangesAsync();
-                    return RedirectToAction("Index");
-                }
-            }
-            return NotFound();
+            await _userManager.Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }

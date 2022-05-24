@@ -6,13 +6,12 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public ushort Price { get; set; }
-        public int Degree { get; set; }
-        public int DegreeId { get; set; }
-        public int SizeId { get; set; }
-        public double Size { get; set; }
         public int CountryId { get; set; }
-        public string Country { get; set; }
-
+        public Country Country { get; set; }
+        public int StrengthId { get; set; }
+        public Strength Strength { get; set; }
+        public int SizeId { get; set; }
+        public Size Size { get; set; }
 
     }
 }

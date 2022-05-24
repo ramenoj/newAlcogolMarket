@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using newAlcogolMarket.Models;
 
@@ -11,9 +12,10 @@ using newAlcogolMarket.Models;
 namespace newAlcogolMarket.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20220524153234_abc")]
+    partial class abc
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,6 +35,9 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("FortressId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -43,16 +48,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StrengthId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CountryId");
 
-                    b.HasIndex("SizeId");
+                    b.HasIndex("FortressId");
 
-                    b.HasIndex("StrengthId");
+                    b.HasIndex("SizeId");
 
                     b.ToTable("Absents");
                 });
@@ -84,10 +86,17 @@ namespace newAlcogolMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FortressId")
+                    b.Property<int>("Degree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -97,16 +106,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("FortressId");
-
-                    b.HasIndex("SizeId");
 
                     b.ToTable("Beers");
                 });
@@ -119,10 +125,17 @@ namespace newAlcogolMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FortressId")
+                    b.Property<int>("Degree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -132,16 +145,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("FortressId");
-
-                    b.HasIndex("SizeId");
 
                     b.ToTable("Champagnes");
                 });
@@ -154,10 +164,17 @@ namespace newAlcogolMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FortressId")
+                    b.Property<int>("Degree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -167,16 +184,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("FortressId");
-
-                    b.HasIndex("SizeId");
 
                     b.ToTable("Cognacs");
                 });
@@ -195,7 +209,27 @@ namespace newAlcogolMarket.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Сountries");
+                    b.ToTable("Country");
+                });
+
+            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Fortress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<double>("Degree")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Fortress");
                 });
 
             modelBuilder.Entity("newAlcogolMarket.Models.Entity.Liquor", b =>
@@ -274,7 +308,7 @@ namespace newAlcogolMarket.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sizes");
+                    b.ToTable("Size");
                 });
 
             modelBuilder.Entity("newAlcogolMarket.Models.Entity.Snack", b =>
@@ -298,26 +332,6 @@ namespace newAlcogolMarket.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Snacks");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Strength", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<double>("Degree")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Strengths");
                 });
 
             modelBuilder.Entity("newAlcogolMarket.Models.Entity.User", b =>
@@ -349,7 +363,17 @@ namespace newAlcogolMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Degree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -359,19 +383,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StrengthId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("SizeId");
-
-                    b.HasIndex("StrengthId");
 
                     b.ToTable("Vodkas");
                 });
@@ -384,7 +402,17 @@ namespace newAlcogolMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Degree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -394,19 +422,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StrengthId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("SizeId");
-
-                    b.HasIndex("StrengthId");
 
                     b.ToTable("Whiskey");
                 });
@@ -419,7 +441,17 @@ namespace newAlcogolMarket.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Degree")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DegreeId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -429,19 +461,13 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
+                    b.Property<double>("Size")
+                        .HasColumnType("float");
+
                     b.Property<int>("SizeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("StrengthId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("CountryId");
-
-                    b.HasIndex("SizeId");
-
-                    b.HasIndex("StrengthId");
 
                     b.ToTable("Wines");
                 });
@@ -454,34 +480,7 @@ namespace newAlcogolMarket.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("newAlcogolMarket.Models.Entity.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Strength")
-                        .WithMany()
-                        .HasForeignKey("StrengthId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Size");
-
-                    b.Navigation("Strength");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Beer", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entity.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Fortress")
+                    b.HasOne("newAlcogolMarket.Models.Entity.Fortress", "Fortress")
                         .WithMany()
                         .HasForeignKey("FortressId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -498,141 +497,6 @@ namespace newAlcogolMarket.Migrations
                     b.Navigation("Fortress");
 
                     b.Navigation("Size");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Champagne", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entity.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Fortress")
-                        .WithMany()
-                        .HasForeignKey("FortressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Fortress");
-
-                    b.Navigation("Size");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Cognac", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entity.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Fortress")
-                        .WithMany()
-                        .HasForeignKey("FortressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Fortress");
-
-                    b.Navigation("Size");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Vodka", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entity.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Strength")
-                        .WithMany()
-                        .HasForeignKey("StrengthId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Size");
-
-                    b.Navigation("Strength");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Whiskey", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entity.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Strength")
-                        .WithMany()
-                        .HasForeignKey("StrengthId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Size");
-
-                    b.Navigation("Strength");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entity.Wine", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entity.Country", "Country")
-                        .WithMany()
-                        .HasForeignKey("CountryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("newAlcogolMarket.Models.Entity.Strength", "Strength")
-                        .WithMany()
-                        .HasForeignKey("StrengthId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Country");
-
-                    b.Navigation("Size");
-
-                    b.Navigation("Strength");
                 });
 #pragma warning restore 612, 618
         }

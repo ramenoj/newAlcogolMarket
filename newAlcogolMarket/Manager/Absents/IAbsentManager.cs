@@ -7,6 +7,6 @@ namespace newAlcogolMarket.Manager
         Task Add(Absent absent);
         Task Delete(int id);
         Task Update(User user);
-        Task<List<User>> Filter(string login);
+        Task<List<Absent>> Filter(string login);
     }
 }

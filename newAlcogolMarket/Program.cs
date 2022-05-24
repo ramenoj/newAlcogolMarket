@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
 // добавляем контекст ApplicationContext в качестве сервиса в приложение
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
+builder.Services.AddTransient<IUserManager, UserManager>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 var app = builder.Build();
