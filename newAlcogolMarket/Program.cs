@@ -1,14 +1,25 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using newAlcogolMarket.Manager.Users;
 using newAlcogolMarket.Models;
-// пространство имен класса ApplicationContext
+
 var builder = WebApplication.CreateBuilder(args);
+
 string connection = builder.Configuration.GetConnectionString("DefaultConnection");
-// добавляем контекст ApplicationContext в качестве сервиса в приложение
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 builder.Services.AddTransient<IUserManager, UserManager>();
-// Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAuthentication("Cookies");
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login";
+        
+    });
+builder.Services.AddAuthorization();
+// Add services to the container.
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -23,10 +34,11 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();   // добавление middleware аутентификации 
+app.UseAuthorization();   // добавление middleware авторизации 
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Index}/{id?}");
 
 app.Run();

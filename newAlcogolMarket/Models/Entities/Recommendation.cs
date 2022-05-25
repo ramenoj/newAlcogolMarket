@@ -1,4 +1,4 @@
-﻿namespace newAlcogolMarket.Models.Entity
+﻿namespace newAlcogolMarket.Models.Entities
 {
     public class Recommendation
     {

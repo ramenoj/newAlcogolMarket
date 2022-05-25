@@ -1,17 +1,20 @@
-﻿using newAlcogolMarket.Models.Entity;
+﻿using newAlcogolMarket.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using newAlcogolMarket.Models;
 using newAlcogolMarket.Manager.Users;
+using newAlcogolMarket.Manager.Absents;
 
 namespace HelloMvcApp.Controllers
 {
     public class HomeController : Controller
     {
         private IUserManager _userManager;
-        public HomeController(IUserManager userManager)
+        private IAbsentManager _absentManager;
+        public HomeController(IUserManager userManager,IAbsentManager absentManager)
         {
             _userManager = userManager;
+            _absentManager = absentManager;
         }
         public async Task<IActionResult> Index()
         {

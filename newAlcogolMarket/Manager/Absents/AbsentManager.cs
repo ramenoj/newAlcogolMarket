@@ -1,7 +1,7 @@
 ﻿using newAlcogolMarket.Models;
-using newAlcogolMarket.Models.Entity;
+using newAlcogolMarket.Models.Entities;
 
-namespace newAlcogolMarket.Manager
+namespace newAlcogolMarket.Manager.Absents
 {
     public class AbsentManager : IAbsentManager
     {
@@ -14,7 +14,7 @@ namespace newAlcogolMarket.Manager
 
         public async Task Add(Absent absent)
         {
-           _context.Add(absent);
+            _context.Absents.Add(absent);
             await _context.SaveChangesAsync();
         }
 
@@ -25,19 +25,25 @@ namespace newAlcogolMarket.Manager
             await _context.SaveChangesAsync();
         }
 
-        public Task<List<Absent>> Filter(string login)
+        public async Task<List<Absent>> Filter(string? name)
         {
-            throw new NotImplementedException();
+            var absents = await GetAll();
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                absents = absents.Where(u => u.Name == name).ToList();
+            }
+            return absents;
         }
 
-        public Task<List<Absent>> GetAll()
+        public async Task<List<Absent>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Absents.AsNoTracking().ToListAsync();
         }
-
-        public Task Update(User user)
+        public async Task Update(Absent absent)
         {
-            throw new NotImplementedException();
+            _context.Absents.Update(absent);
+            await _context.SaveChangesAsync();
         }
     }
 }

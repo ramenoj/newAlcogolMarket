@@ -1,14 +1,13 @@
-﻿using newAlcogolMarket.Models.Entity;
+﻿using newAlcogolMarket.Models.Entities;
 
 namespace newAlcogolMarket.Manager.Beers
 {
     public interface IBeerManager
     {
         Task<List<Beer>> GetAll();
-        Beer GetUser(Beer user);
-        Task AddUser(Beer user);
-        Task DeleteUser(int id);
-        Task UpdateUser(Beer user);
+        Task Add(Beer beer);
+        Task Delete(int id);
+        Task Update(Beer beer);
         Task<List<Beer>> Filter(string name);
     }
 }

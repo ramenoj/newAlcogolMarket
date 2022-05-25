@@ -1,5 +1,5 @@
 ﻿using newAlcogolMarket.Models;
-using newAlcogolMarket.Models.Entity;
+using newAlcogolMarket.Models.Entities;
 
 namespace newAlcogolMarket.Manager.Users
 {
@@ -41,12 +41,6 @@ namespace newAlcogolMarket.Manager.Users
         {
             return await _context.Users.AsNoTracking().ToListAsync();
         }
-
-        public User Get(User user)
-        {
-            return _context.Users.FirstOrDefault(u => u.Login == user.Login && u.Password == user.Password);
-        }
-
         public async Task Update(User user)
         {
             _context.Users.Update(user);

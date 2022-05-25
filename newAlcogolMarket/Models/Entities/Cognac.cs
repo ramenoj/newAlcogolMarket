@@ -1,6 +1,6 @@
-﻿namespace newAlcogolMarket.Models.Entity
+﻿namespace newAlcogolMarket.Models.Entities
 {
-    public class Wine
+    public class Cognac
     {
         [Key]
         public int Id { get; set; }

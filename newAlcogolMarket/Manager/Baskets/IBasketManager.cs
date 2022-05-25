@@ -1,12 +1,12 @@
-﻿using newAlcogolMarket.Models.Entity;
+﻿using newAlcogolMarket.Models.Entities;
 namespace newAlcogolMarket.Manager.Baskets
 {
     public interface IBasketManager
     {
-        Task<List<Basket>> GetAll();
-        Task Add(Basket user);
+        Task<List<ShopItems>> GetAll();
+        Task Add(ShopItems basket);
         Task Delete(int id);
-        Task Update(Basket user);
-        Task<List<Basket>> Filter(string name);
+        Task Update(ShopItems basket);
+        Task<List<ShopItems>> Filter(string name);
     }
 }

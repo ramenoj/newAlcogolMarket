@@ -1,37 +1,48 @@
-﻿using newAlcogolMarket.Models.Entity;
+﻿using newAlcogolMarket.Models;
+using newAlcogolMarket.Models.Entities;
 
 namespace newAlcogolMarket.Manager.Beers
 {
     public class BeerManager : IBeerManager
     {
-        public Task AddUser(Beer user)
+        private readonly ApplicationContext _context;
+
+        public BeerManager(ApplicationContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteUser(int id)
+        public async Task Add(Beer beer)
         {
-            throw new NotImplementedException();
+            _context.Beers.Add(beer);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<List<Beer>> Filter(string name)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var beer = await _context.Beers.FirstOrDefaultAsync(x => x.Id == id);
+            _context.Beers.Remove(beer);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<List<Beer>> GetAll()
+        public async Task<List<Beer>> Filter(string name)
         {
-            throw new NotImplementedException();
+            var beers = await GetAll();
+            if (!string.IsNullOrEmpty(name))
+            {
+                beers = beers.Where(u => u.Name == name).ToList();
+            }
+            return beers;
         }
 
-        public Beer GetUser(Beer user)
+        public async Task<List<Beer>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Beers.AsNoTracking().ToListAsync();
         }
-
-        public Task UpdateUser(Beer user)
+        public async Task Update(Beer beer)
         {
-            throw new NotImplementedException();
+            _context.Beers.Update(beer);
+            await _context.SaveChangesAsync();
         }
     }
 }
