@@ -9,12 +9,11 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 builder.Services.AddTransient<IUserManager, UserManager>();
 builder.Services.AddControllersWithViews();
-builder.Services.AddAuthentication("Cookies");
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Login";
-        
+        options.LoginPath = "/User/Login";
+        options.AccessDeniedPath = "/User/Login";
     });
 builder.Services.AddAuthorization();
 // Add services to the container.
@@ -39,6 +38,6 @@ app.UseAuthorization();   // добавление middleware авторизации
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Index}/{id?}");
+    pattern: "{controller=User}/{action=Login}/{id?}");
 
 app.Run();

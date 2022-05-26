@@ -9,11 +9,10 @@ namespace newAlcogolMarket.Controllers
             switch (tableName)
             {
                 case "Absent":
-                    
-                    break;
+
+                break;
 
             }
-
             return View();
         }
     }

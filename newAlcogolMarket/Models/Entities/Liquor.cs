@@ -6,6 +6,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public ushort Price { get; set; }
+        public int Rating { get; set; }
         public int StrengthId { get; set; }
         public Strength Strength { get; set; }
         public int SizeId { get; set; }

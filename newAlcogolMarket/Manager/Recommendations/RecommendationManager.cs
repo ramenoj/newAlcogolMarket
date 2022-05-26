@@ -17,14 +17,12 @@ namespace newAlcogolMarket.Manager.Recommendations
            _context.Recommendations.Add(recommendation);
             await _context.SaveChangesAsync();
         }
-
         public async Task Delete(int id)
         {
             var recommendation = _context.Recommendations.FirstOrDefault(x => x.Id == id);
             _context.Recommendations.Remove(recommendation);
             await _context.SaveChangesAsync();
         }
-
         public async Task<List<Recommendation>> Filter(string name)
         {
             var recommendations = await GetAll();

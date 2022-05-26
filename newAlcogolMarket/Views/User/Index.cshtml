@@ -1,20 +1,26 @@
-﻿
-<html>
-    <head>
-        <meta charset='utf-8' />
-    </head>
-    <body>
-        <h2>Login Form</h2>
-        <form method='post'>
-            <p>
-                <label>Login</label><br />
-                <input name='login' />
-            </p>
-            <p>
-                <label>Password</label><br />
-                <input type='password' name='password' />
-            </p>
-            <input type='submit' value='Login' />
-        </form>
-    </body>
-    </html>
+﻿@model IEnumerable<newAlcogolMarket.Models.Entities.User>
+ 
+<h2>Список пользователей</h2>
+<p><a asp-action="Login">Добавить пользователя</a></p>
+<table class="table">
+     <tr><th>ID</th><th>Имя</th><th>Password</th><th></th><th></th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Login</td>
+            <td>@item.Password</td>
+            <td>
+                <a asp-action="Update" asp-controller="User" asp-route-id="@item.Id">Изменить</a>
+            </td>
+            <td>
+                <form asp-controller="User" asp-action="Delete" method="post"  asp-route-id="@item.Id">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<form method="post" asp-action="SignOut" asp-controller="User">
+<input type="submit" value="Рзалогиниться">
+</form>

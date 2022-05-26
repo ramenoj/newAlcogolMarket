@@ -36,7 +36,6 @@ namespace newAlcogolMarket.Manager.Users
             }
             return users;
         }
-
         public async Task<List<User>> GetAll()
         {
             return await _context.Users.AsNoTracking().ToListAsync();
@@ -45,6 +44,10 @@ namespace newAlcogolMarket.Manager.Users
         {
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
+        }
+        public User Get(User user)
+        {
+            return  _context.Users.FirstOrDefault(u => u.Login == user.Login);
         }
     }
 }
