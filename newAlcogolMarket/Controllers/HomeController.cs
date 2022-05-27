@@ -1,28 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using newAlcogolMarket.Models;
+﻿using newAlcogolMarket.Models.Entities;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using newAlcogolMarket.Models;
+using newAlcogolMarket.Manager.Users;
 
-namespace newAlcogolMarket.Controllers
+namespace HelloMvcApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult basket()
         {
             return View();
@@ -80,8 +65,7 @@ namespace newAlcogolMarket.Controllers
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
+        
     }
 }

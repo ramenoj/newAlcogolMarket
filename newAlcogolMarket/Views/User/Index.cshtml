@@ -1,0 +1,26 @@
+﻿@model IEnumerable<newAlcogolMarket.Models.Entities.User>
+ 
+<h2>Список пользователей</h2>
+<p><a asp-action="SignIn">Добавить пользователя</a></p>
+<table class="table">
+     <tr><th>ID</th><th>Имя</th><th>Password</th><th></th><th></th></tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Login</td>
+            <td>@item.Password</td>
+            <td>
+                <a asp-action="Update" asp-controller="User" >Изменить</a>
+            </td>
+            <td>
+                <form asp-controller="User" asp-action="Delete" method="post">
+                    <input type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<form method="post" asp-action="SignOut" asp-controller="User">
+<input type="submit" value="Выход">
+</form>
