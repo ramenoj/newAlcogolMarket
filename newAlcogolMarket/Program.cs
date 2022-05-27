@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using newAlcogolMarket.Manager.Users;
 using newAlcogolMarket.Models;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +13,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/User/Login";
-        options.AccessDeniedPath = "/User/Login";
+        options.LoginPath = "/User/SignIn";
+        options.Cookie.Name = "MyUser";
     });
 builder.Services.AddAuthorization();
 // Add services to the container.
@@ -30,7 +31,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
+app.UseCookiePolicy();
 app.UseRouting();
 
 app.UseAuthentication();   // добавление middleware аутентификации 
@@ -38,6 +39,6 @@ app.UseAuthorization();   // добавление middleware авторизации
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Login}/{id?}");
+    pattern: "{controller=User}/{action=SignIn}/{id?}");
 
 app.Run();

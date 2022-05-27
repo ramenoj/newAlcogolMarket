@@ -10,7 +10,7 @@ namespace newAlcogolMarket.Controllers
 {
     public class UserController : Controller
     {
-        public IUserManager usermanager;
+        private readonly IUserManager usermanager;
         public UserController(IUserManager usermanager)
         {
             this.usermanager = usermanager;
@@ -21,22 +21,37 @@ namespace newAlcogolMarket.Controllers
             var userGetall = usermanager.GetAll();
             return View(await userGetall);
         }
-        public IActionResult Login()
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+        public IActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> SignUp(User fakeUser)
+        public async Task<IActionResult> Register(User user)
         {
-            var user = usermanager.Get(fakeUser);
-            if(user==null)
+            var fakeuser = usermanager.Get(user);
+            if (fakeuser!=null)
             {
-                await usermanager.Add(fakeUser);
+                return RedirectToAction("Register");
+            }
+            await usermanager.Add(user);
+            return RedirectToAction("SignIn");
+        }
+        [HttpPost]
+        public async Task<IActionResult> SignIn(User fakeuser)
+        {
+            var user = usermanager.Get(fakeuser);
+            if (user == null)
+            {
+                return RedirectToAction("SignIn");
             }
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
-                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Login),
+                new Claim(ClaimsIdentity.DefaultNameClaimType, fakeuser.Login),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, fakeuser.Login),
             };
             var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
             var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
@@ -47,7 +62,7 @@ namespace newAlcogolMarket.Controllers
         public async Task<IActionResult> SignOut()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Login");
+            return RedirectToAction("SignIn");
         }
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
@@ -62,7 +77,15 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(User user)
         {
-            await usermanager.Update(user);
+            var fakeuser = usermanager.Get(user);
+            if (fakeuser == null)
+            {
+                await usermanager.Update(user);
+            }
+            else
+            {
+                return RedirectToAction("Update");
+            }
             return RedirectToAction("Index");
         }
     }

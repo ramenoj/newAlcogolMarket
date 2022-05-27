@@ -14,8 +14,13 @@ namespace newAlcogolMarket.Manager.Users
 
         public async Task Add(User user)
         {
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            
+            var fakeuser=_context.Users.FirstOrDefaultAsync(x=>x.Login==user.Login);
+            if(fakeuser==null)
+            {
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task Delete(int id)
@@ -47,7 +52,11 @@ namespace newAlcogolMarket.Manager.Users
         }
         public User Get(User user)
         {
-            return  _context.Users.FirstOrDefault(u => u.Login == user.Login);
+            return _context.Users.FirstOrDefault(u => u.Login == user.Login);
+        }
+        public User Get(string login, string password)
+        {
+            return _context.Users.FirstOrDefault(u => u.Login == login&& u.Password == password);
         }
     }
 }

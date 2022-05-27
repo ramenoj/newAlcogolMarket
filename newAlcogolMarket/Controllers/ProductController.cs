@@ -2,7 +2,7 @@
 
 namespace newAlcogolMarket.Controllers
 {
-    public class ItemController : Controller
+    public class ProductController : Controller
     {
         public IActionResult Index(string tableName,int id)
         {
