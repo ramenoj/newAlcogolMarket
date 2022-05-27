@@ -1,6 +1,6 @@
 ﻿namespace newAlcogolMarket.Models.Entities
 {
-    public class ShopItems
+    public class ShopItem
     {
         [Key]
         public int Id { get; set; }
