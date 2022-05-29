@@ -4,7 +4,6 @@
     {
         [Key]
         public int Id { get; set; }
-        public int Price { get; set; } 
         public int ProductId { get; set; }
         [ForeignKey(nameof(ProductId))]
         public Product Product { get; set; }
