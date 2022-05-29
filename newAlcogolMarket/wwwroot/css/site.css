@@ -15,28 +15,26 @@ a {
 html {
     position: relative;
     min-height: 100%;
-    background: #2E005C;
-
+    background: #FFF2F9;
 }
 
 body {
     margin-bottom: 60px;
-    background: #2E005C;
+    background: #FFF2F9;
 }
 
 
 
 header {
-    background: #5C00A5;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
-
+    background: #323232;
+    box-shadow: #FE83C6;
 }
 a:hover {
     color: blueviolet
 }
 
 li :hover {
-    color:  gold
+    color: deeppink
 }
 
 img :hover {
@@ -44,7 +42,7 @@ img :hover {
 }
 
 .use-1 {
-    background: #5C00A5;
+    background: #323232;
 }
 
     .use-1 button {
@@ -55,7 +53,7 @@ img :hover {
     }
 
 .use-2 {
-    background: #5C00A5;
+    background: #323232;
 }
 
     .use-2 button {
@@ -71,53 +69,58 @@ img :hover {
 }
 
 p {
-    color: white;
+    color: #323232;
     text-align: center;
 }
 
 h1 {
-    color: white;
+    color: #323232;
+    text-align: center;
+}
+
+h2 {
+    color: #323232;
     text-align: center;
 }
 
 .nav-link1 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link2 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link3 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link4 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link5 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link6 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link7 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link8 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link9 button:hover {
-    color: gold;
+    color: deeppink;
     filter: invert(15%);
 }
 .nav-link10 button:hover {
-    color: gold;
+    color:  deeppink;
     filter: invert(15%);
 }
 li {
@@ -131,10 +134,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 
@@ -145,10 +148,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link3 button {
@@ -158,10 +161,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link4 button {
@@ -171,10 +174,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link5 button {
@@ -184,10 +187,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link6 button {
@@ -197,10 +200,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link7 button {
@@ -210,10 +213,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link8 button {
@@ -223,10 +226,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 .nav-link9 button {
@@ -236,10 +239,10 @@ li {
     width: 10%;
     height: 5%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 
@@ -250,10 +253,10 @@ li {
     width: 10%;
     height: 6%;
     margin-bottom: 10px;
-    background: #5C00A5;
-    color: #00A82F;
+    background: #323232;
+    color: #FFF2F9;
     font-weight: bold;
-    box-shadow: 0 0 10px rgb(0, 255, 33);
+    box-shadow: #FA4EAB;
     display: block;
 }
 
@@ -285,7 +288,7 @@ li {
     border: 1px solid #b5e9a7;
     border-radius: 3px;
     position: relative;
-    background: #5C00A5;
+    background: #323232;
     margin: 0 20px 20px 0;
     text-decoration: none;
     color: #474747;
@@ -296,8 +299,12 @@ li {
 .product:hover {
      filter: invert(15%);
 }
-h3{
-    color: white;
+h3 {
+    color: #323232;
     position: relative;
     left: 30px;
+}
+
+form {
+    text-align: center;
 }

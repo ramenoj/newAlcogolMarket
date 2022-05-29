@@ -4,6 +4,7 @@
     </head>
     <body>
         <h2>Регистрация</h2>
+        <div id="block-search">
         <form method='post'>
             <p>
                 <label>Login</label><br/>
@@ -11,9 +12,10 @@
             </p>
             <p>
                 <label>Password</label><br />
-                <input type='password' name='password' />
+                <font ><input type='password' name='password' /></font>
             </p>
-            <input  asp-action="Register" type='submit' value='Зарегистрироваться'/>
+            <input asp-action="Register" type='submit' value='Зарегистрироваться'/>
         </form>
+        </div>
     </body>
 </html>

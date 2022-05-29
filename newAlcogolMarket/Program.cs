@@ -39,6 +39,6 @@ app.UseAuthorization();   // добавление middleware авторизации
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=SignIn}/{id?}");
+    pattern: "{controller=User}/{action=Register}/{id?}");
 
 app.Run();
