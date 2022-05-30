@@ -52,7 +52,7 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(User user)
         {
-            var fakeuser = _userManager.Get(user);
+            var fakeuser = _userManager.Get(user.Id);
             if (fakeuser!=null)
             {
                 return RedirectToAction("Register");
@@ -63,8 +63,8 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(User fakeuser)
         {
-            HttpContext.Session.SetInt32("Id",fakeuser.Id);
-            var user = _userManager.Get(fakeuser);
+            HttpContext.Session.SetInt32("UserId",fakeuser.Id);
+            var user = _userManager.Get(fakeuser.Id);
             if (user == null)
             {
                 return RedirectToAction("SignIn");
@@ -85,6 +85,13 @@ namespace newAlcogolMarket.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("SignIn");
         }
+        [HttpGet]
+        public IActionResult Basket()
+        {
+            var userId=HttpContext.Session.GetInt32("UserId");
+            var user = _userManager.Get(userId);
+            return View(user.BasketItems);
+        }
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
@@ -98,7 +105,7 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(User user)
         {
-            var fakeuser = _userManager.Get(user);
+            var fakeuser = _userManager.Get(user.Id);
             if (fakeuser == null)
             {
                 await _userManager.Update(user);

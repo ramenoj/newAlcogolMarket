@@ -6,13 +6,6 @@ namespace newAlcogolMarket.Controllers
     {
         public IActionResult Index(string tableName,int id)
         {
-            switch (tableName)
-            {
-                case "Absent":
-
-                break;
-
-            }
             return View();
         }
     }
