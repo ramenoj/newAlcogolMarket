@@ -35,6 +35,11 @@ namespace newAlcogolMarket.Manager.Products
             return products;
         }
 
+        public Product Get(Product product)
+        {
+            return _context.Products.FirstOrDefault(u => u.Id == product.Id);
+        }
+
         public async Task<List<Product>> GetAll()
         {
             return await _context.Products.AsNoTracking().ToListAsync();

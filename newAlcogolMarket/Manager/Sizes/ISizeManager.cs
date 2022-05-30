@@ -8,7 +8,7 @@ namespace newAlcogolMarket.Manager.Sizes
         Task Add(Size size);
         Task Delete(int id);
         Task Update(Size size);
-        Task<List<Size>> Filter(string name);
+        Task <List<Size>> Filter (Size size);
         Size Get(Size size);
     }
 }

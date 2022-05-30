@@ -25,19 +25,28 @@ namespace newAlcogolMarket.Manager.Sizes
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<Size>> Filter(string name)
+        public async Task<List<Size>> Filter(Size size)
         {
-            
+            var shopItems = await GetAll();
+            shopItems = shopItems.Where(u => u.Volume == size.Volume).ToList();
+           
+            return shopItems;
         }
 
-        public Task<List<Size>> GetAll()
+        public  Size Get(Size size)
         {
-            throw new NotImplementedException();
+           return _context.Sizes.FirstOrDefault(x => x.Id == size.Id);
         }
 
-        public Task Update(Size basket)
+        public async Task<List<Size>> GetAll()
         {
-            throw new NotImplementedException();
+            return await _context.Sizes.AsNoTracking().ToListAsync();
+        }
+
+        public async Task Update(Size size)
+        {
+            _context.Sizes.Update(size);
+            await _context.SaveChangesAsync();
         }
     }
 }

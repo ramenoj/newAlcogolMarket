@@ -35,6 +35,11 @@ namespace newAlcogolMarket.Manager.Categories
             return categories;
         }
 
+        public Category Get(Category category)
+        {
+            return _context.Categories.FirstOrDefault(x => x.Id == category.Id);
+        }
+
         public async Task<List<Category>> GetAll()
         {
             return await _context.Categories.AsNoTracking().ToListAsync();
