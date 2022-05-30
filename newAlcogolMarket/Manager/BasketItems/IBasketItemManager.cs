@@ -8,5 +8,6 @@ namespace newAlcogolMarket.Manager.BasketItems
         Task Create(BasketItem item);
         Task Delete(int Id);
         Task TotalMount(BasketItem item);
+        int Quantity(int count);
     }
 }
