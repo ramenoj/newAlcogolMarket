@@ -10,5 +10,6 @@ namespace newAlcogolMarket.Manager.Products
         Task Update(Product product);
         Task<List<Product>> Filter(string name);
         Product Get(Product product);
+        Task<List<Product>> GetAllByCategory(string categoryName);
     }
 }

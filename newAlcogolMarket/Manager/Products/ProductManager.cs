@@ -45,6 +45,14 @@ namespace newAlcogolMarket.Manager.Products
             return await _context.Products.AsNoTracking().ToListAsync();
         }
 
+        public async Task<List<Product>> GetAllByCategory(string categoryName)
+        {
+            _context.Sizes.Load();
+            _context.Countries.Load();
+            _context.Categories.Load();
+            return await _context.Products.Where(x => x.Category.Name == categoryName).AsNoTracking().ToListAsync();
+        }
+
         public async Task Update(Product product)
         {
             _context.Products.Update(product);
