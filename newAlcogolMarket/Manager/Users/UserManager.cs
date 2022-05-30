@@ -54,9 +54,6 @@ namespace newAlcogolMarket.Manager.Users
         {
             return _context.Users.FirstOrDefault(u => u.Login == user.Login);
         }
-        public User Get(string login, string password)
-        {
-            return _context.Users.FirstOrDefault(u => u.Login == login&& u.Password == password);
-        }
+        
     }
 }

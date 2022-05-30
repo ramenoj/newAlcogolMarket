@@ -10,6 +10,5 @@ namespace newAlcogolMarket.Manager.Users
         Task Delete(int id);
         Task Update(User user);
         Task<List<User>> Filter(string login);
-        User Get(string login,string password);
     }
 }

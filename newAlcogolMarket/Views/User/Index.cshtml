@@ -1,4 +1,4 @@
-﻿@model IEnumerable<newAlcogolMarket.Models.Entities.User>
+﻿@*@model IEnumerable<newAlcogolMarket.Models.Entities.User>
  
 <h2>Список пользователей</h2>
 <p><a asp-action="SignIn">Добавить пользователя</a></p>
@@ -14,7 +14,7 @@
                 <a asp-action="Update" asp-controller="User" >Изменить</a>
             </td>
             <td>
-                <form asp-controller="User" asp-action="Delete" method="post">
+                <form asp-controller="User" asp-action="Delete" method="post" asp-route-id="@item.Id">
                     <input type="submit" value="Удалить" />
                 </form>
             </td>
@@ -23,4 +23,40 @@
 </table>
 <form method="post" asp-action="SignOut" asp-controller="User">
 <input type="submit" value="Выход">
-</form>
+</form>*@
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+</head>
+<body>
+<div class="head">
+    <h1>Админ страничка</h1>
+
+@*    <form action="/Home/Index">
+        <input type="submit" action="/Home/Index" value="Вернуться на главную" class="somebuttons" style="margin-right: 3px;"/>
+    </form>
+
+    <form method="get" action="/Admin/ChangePassword">
+        <input type="submit" action="/Admin/ChangePassword" value="Изменить пароль" class="somebuttons" style="margin-right: 3px;"/>
+    </form>
+
+    <form method="post" action="/Admin/SignOut">
+        <input type="submit" action="/Admin/SignOut" value="Выйти" class="somebuttons"/>
+    </form>*@
+</div>
+
+<div class="somecontainer">
+    <nav class="leftmenu">
+        <a asp-action="">BottledDrinks</a><br />
+        <a asp-action="Creams">Creams</a><br />
+        <a asp-action="Desserts">Desserts</a><br />
+        <a asp-action="Drinks">Drinks</a><br />
+        <a asp-action="Espressoes">Espressoes</a><br />
+    </nav>
+</div>
+</body>
+</html>
