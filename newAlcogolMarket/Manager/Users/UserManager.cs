@@ -50,9 +50,9 @@ namespace newAlcogolMarket.Manager.Users
             _context.Users.Update(user);
             await _context.SaveChangesAsync();
         }
-        public User Get(int? id)
+        public User Get(User user)
         {
-            return _context.Users.Include(u=>u.BasketItems).FirstOrDefault(u => u.Id==id);
+            return _context.Users.Include(u=>u.BasketItems).ThenInclude(b=>b.Product).FirstOrDefault(u => u.Login==user.Login);
         }
 
         

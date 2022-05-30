@@ -9,7 +9,7 @@ namespace newAlcogolMarket.Manager.Products
         Task Delete(int id);
         Task Update(Product product);
         Task<List<Product>> Filter(string name);
-        Product Get(Product product);
+        Product Get(int id);
         Task<List<Product>> GetAllByCategory(string categoryName);
     }
 }

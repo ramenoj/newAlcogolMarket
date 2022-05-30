@@ -7,7 +7,5 @@ namespace newAlcogolMarket.Manager.Recommendations
         Task<List<Recommendation>> GetAll();
         Task Add(Recommendation recommendation);
         Task Delete(int id);
-        Task Update(Recommendation recommendation);
- 
     }
 }

@@ -1,0 +1,9 @@
+﻿@model newAlcogolMarket.Models.Entities.Product
+<body>
+	<a>@Model.Name</a>
+	<a>@Model.Price</a>
+	<form method="get">
+	<input asp-controller="BasketItem" asp-action="Add" value="Добавить"/>
+	<input name="quantity" asp-action="Add" asp-controller="BasketItem" />
+	</form>
+</body>
