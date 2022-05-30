@@ -1,4 +1,6 @@
-﻿namespace newAlcogolMarket.Manager.Products
+﻿using newAlcogolMarket.Models.Entities;
+
+namespace newAlcogolMarket.Manager.Products
 {
     public interface IProductManager
     {

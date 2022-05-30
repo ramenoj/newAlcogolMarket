@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Manager\Sizes\**" />
+    <Compile Remove="Manager\Strengths\**" />
+    <Content Remove="Manager\Sizes\**" />
+    <Content Remove="Manager\Strengths\**" />
+    <EmbeddedResource Remove="Manager\Sizes\**" />
+    <EmbeddedResource Remove="Manager\Strengths\**" />
+    <None Remove="Manager\Sizes\**" />
+    <None Remove="Manager\Strengths\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -20,11 +31,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Manager\Sizes\" />
-    <Folder Include="Manager\Strengths\" />
   </ItemGroup>
 
 </Project>
