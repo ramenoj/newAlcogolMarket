@@ -1,4 +1,5 @@
-﻿@{
+﻿@Model newAlcogolMarket.Models.Entities.Product
+@{
     ViewData["Title"] = "Absinthe";
 }
 <head>
@@ -8,7 +9,13 @@
 </head>
 <body>
 	<h3>Абсент:</h3>
-    <ul class="products clearfix">
+	@foreach(var item in Model){
+		<li class="product-wrapper">
+		<a href="" class="product">item.Name</a>
+	</li>
+	}
+	
+    @*<ul class="products clearfix">
 	<li class="product-wrapper">
 		<a href="" class="product"></a>
 	</li>
@@ -24,5 +31,5 @@
 	<li class="product-wrapper">
 		<a href="" class="product"></a>
 	</li>
-	</ul>
+	</ul>*@
 </body>

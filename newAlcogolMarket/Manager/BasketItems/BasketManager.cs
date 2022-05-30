@@ -12,32 +12,32 @@ namespace newAlcogolMarket.Manager.Baskets
             _context = context;
         }
 
-        public async Task Add(ShopItems basket)
+        public async Task Add(BasketItem basket)
         {
-            _context.Basket.Add(basket);
+            _context.BasketItem.Add(basket);
             await _context.SaveChangesAsync();
         }
 
         public async Task Delete(int id)
         {
-            var basket = await _context.Basket.FirstOrDefaultAsync(x => x.Id == id);
-            _context.Basket.Remove(basket);
+            var basket = await _context.BasketItem.FirstOrDefaultAsync(x => x.Id == id);
+            _context.BasketItem.Remove(basket);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<List<ShopItems>> Filter(string name)
+        public async Task<List<BasketItem>> Filter(string name)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<ShopItems>> GetAll()
+        public async Task<List<BasketItem>> GetAll()
         {
-            return await _context.Basket.ToListAsync();
+            return await _context.BasketItem.ToListAsync();
         }
 
-        public async Task Update(ShopItems basket)
+        public async Task Update(BasketItem basket)
         {
-            _context.Basket.Update(basket);
+            _context.BasketItem.Update(basket);
             await _context.SaveChangesAsync();
         }
     }
