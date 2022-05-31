@@ -1,0 +1,33 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Liquor";
+}
+<head>
+        <meta charset="utf-8">
+        <link href="site.css" rel="stylesheet">
+		<style>
+   .prod {
+    text-align: center;
+   }
+  </style>
+        <title>BEDOLAGI-Ликер</title>
+</head>
+<body>
+	<h3>Ликер:</h3>
+	<div style="display:flex; ">
+		@foreach(var item in Model){
+			
+			<li class="product-wrapper">
+			<a href="" class="product" >
+				
+				<p class="prod"><img src="@item.Image" width="101" height="166"><br>
+				@item.Name<br>
+				@item.Country.Name<br>
+				Рейтинг: @item.Rating / 5<br>
+				@item.Price руб</p>
+				</a>
+			</li>
+			
+		}
+	</div>
+</body>

@@ -1,0 +1,25 @@
+﻿@model List<Snack>
+@{
+    ViewData["Title"] = "Snacks";
+}
+<head>
+        <meta charset="utf-8">
+        <link href="site.css" rel="stylesheet">
+        <title>BEDOLAGI-Абсент</title>
+</head>
+<body>
+	<h3>Абсент:</h3>
+	<div style="display:flex; ">
+		@foreach(var item in Model){
+			
+			<li class="product-wrapper">
+			<a href="" class="product" >
+				@item.Name<br>
+				@item.Name<br>
+				@item.Price<br>
+				</a>
+			</li>
+			
+		}
+	</div>
+</body>

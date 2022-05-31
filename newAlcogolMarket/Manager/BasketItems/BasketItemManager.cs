@@ -28,5 +28,10 @@ namespace newAlcogolMarket.Manager.BasketItems
                 await _context.SaveChangesAsync();
             }
         }
+
+        public Task TotalMount(BasketItem item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

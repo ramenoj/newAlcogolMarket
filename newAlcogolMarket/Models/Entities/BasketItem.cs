@@ -1,5 +1,4 @@
-﻿using System.Linq;
-namespace newAlcogolMarket.Models.Entities
+﻿namespace newAlcogolMarket.Models.Entities
 {
     public class BasketItem
     {
@@ -12,5 +11,6 @@ namespace newAlcogolMarket.Models.Entities
         public int Quantity { get; set; }
         public DateTime DateCreated { get; set; }
         public int UserId { get; set; }
+
     }
 }

@@ -18,6 +18,7 @@
         public int SizeId { get; set; }
         [ForeignKey(nameof(SizeId))]
         public Size Size { get; set; }
+       
 
     }
 }

@@ -17,6 +17,7 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 builder.Services.AddTransient<IUserManager, UserManager>();
 builder.Services.AddTransient<IProductManager, ProductManager>();
+
 builder.Services.AddTransient<ISizeManager, SizeManager>();
 builder.Services.AddTransient<ICategoryManager, CategoryManager>();
 builder.Services.AddTransient<ISnackManager, SnackManager>();
@@ -59,6 +60,6 @@ app.UseAuthorization();   // добавление middleware авторизации
 app.UseSession();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=SignIn}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

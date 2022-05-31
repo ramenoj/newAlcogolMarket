@@ -1,0 +1,126 @@
+@{
+    ViewData["Title"] = "Главная";
+}
+<head>
+        <meta charset="utf-8">
+        <link href="site.css" rel="stylesheet">
+        <title>BEDOLAGI-Алкомаркет</title>
+</head>
+<body>
+    <header>
+        
+    <ul class="navbar-nav flex-grow-1">
+<li class="nav-item2">
+<a class="nav-link1 " asp-controller="Home" asp-action="Wine"><button>Вина</button></a>
+</li>
+<li class="nav-item">
+<a class="nav-link2 " asp-area="" asp-controller="Home" asp-action="Liquor"><button>Ликёры</button></a>
+</li>
+<li class="nav-item">
+<a class="nav-link3 " asp-area="" asp-controller="Home" asp-action="Champagne"><button>Шампанское</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link4 " asp-area="" asp-controller="Home" asp-action="Whisky"><button>Виски</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link5 " asp-area="" asp-controller="Home" asp-action="Cognac"><button>Коньяк</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link6 " asp-area="" asp-controller="Home" asp-action="beer"><button>Пиво</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link7 " asp-area="" asp-controller="Home" asp-action="Absinthe"><button>Абсент</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link8 " asp-area="" asp-controller="Home" asp-action="Vodka"><button>Водка</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link9 " asp-area="" asp-controller="Home" asp-action="Rom"><button>Ром</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link10 " asp-area="" asp-controller="Home" asp-action="Tequilla"><button>Текила</button></a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link11 " asp-area="" asp-controller="Home" asp-action="Snacks"><button>Закуски</button></a>
+ </li>
+    </ul>
+    </header>
+    <h3>Наш выбор:</h3>
+    <audio src="https://d9olupt5igjta.cloudfront.net/samples/sample_files/9311/6f8f60c287ae8c7aafb18581ed28a07fbb4db222/mp3/347561-micheal-bay-hit.mp3?1512767778" autoplay></audio>
+    <ul class="products clearfix">
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+	<li class="product-wrapper">
+		<a href="" class="product"></a>
+	</li>
+</ul>
+
+    <script>
+        var bMusic = new Audio('/*https://d9olupt5igjta.cloudfront.net/samples/sample_files/9311/6f8f60c287ae8c7aafb18581ed28a07fbb4db222/mp3/347561-micheal-bay-hit.mp3?1512767778*/')
+	bMusic.play()
+        function Sound(source, volume, loop)
+{
+    this.source = source;
+    this.volume = volume;
+    this.loop = loop;
+    var son;
+    this.son = son;
+    this.finish = false;
+    this.stop = function()
+    {
+        document.body.removeChild(this.son);
+    }
+    this.start = function()
+    {
+        if (this.finish) return false;
+        this.son = document.createElement("embed");
+        this.son.setAttribute("src", this.source);
+        this.son.setAttribute("hidden", "true");
+        this.son.setAttribute("volume", this.volume);
+        this.son.setAttribute("autostart", "true");
+        this.son.setAttribute("loop", this.loop);
+        document.body.appendChild(this.son);
+    }
+    this.remove = function()
+    {
+        document.body.removeChild(this.son);
+        this.finish = true;
+    }
+    this.init = function(volume, loop)
+    {
+        this.finish = false;
+        this.volume = volume;
+        this.loop = loop;
+    }
+}
+        window.addEventListener('resize', function(event) {
+    var foo = new Sound("/*https://d9olupt5igjta.cloudfront.net/samples/sample_files/9311/6f8f60c287ae8c7aafb18581ed28a07fbb4db222/mp3/347561-micheal-bay-hit.mp3?1512767778*/", 100, true);
+foo.start();
+console.log("ghgf");
+
+foo.init(100, false);
+//foo.remove();
+}, true);
+    </script>
+</body>
+
+

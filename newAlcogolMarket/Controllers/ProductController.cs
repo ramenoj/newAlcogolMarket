@@ -17,7 +17,7 @@ namespace newAlcogolMarket.Controllers
         {
             var product =  _manager.Get(id);
             if(product == null)
-            {a
+            {
                 return NotFound();
             }
             else

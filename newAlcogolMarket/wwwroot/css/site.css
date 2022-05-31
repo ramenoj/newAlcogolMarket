@@ -8,11 +8,316 @@ html {
   }
 }
 
+a {
+    font-weight: bold;
+}
+
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    background: #FFF2F9;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background: #FFF2F9;
+}
+
+
+
+header {
+    background: #323232;
+    box-shadow: #FE83C6;
+}
+a:hover {
+    color: blueviolet
+}
+
+li :hover {
+    color: deeppink
+}
+
+img :hover {
+    filter:  invert(100%)
+}
+
+.use-1 {
+    background: #323232;
+}
+
+    .use-1 button {
+        background: url('https://cdn-icons-png.flaticon.com/512/4296/4296591.png') no-repeat;
+        
+        border-radius: 50%;
+        border: 0;
+    }
+
+.use-2 {
+    background: #323232;
+}
+
+    .use-2 button {
+        background: transparent;
+        border-radius: 50%;
+        border: 0;
+    }
+
+
+.nav-link button:hover {
+    cursor: pointer;
+    filter: invert(100%);
+}
+
+h1 {
+    color: #323232;
+    text-align: center;
+}
+
+h2 {
+    color: #323232;
+    text-align: center;
+}
+
+.nav-link1 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link2 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link3 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link4 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link5 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link6 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link7 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link8 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link9 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+.nav-link10 button:hover {
+    color:  deeppink;
+    filter: invert(15%);
+}
+.nav-link11 button:hover {
+    color: deeppink;
+    filter: invert(15%);
+}
+li {
+    text-align: left;
+}
+
+.nav-link1 button {
+    position: absolute;
+    top: 7.6%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+
+.nav-link2 button {
+    position: absolute;
+    top: 12.8%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link3 button {
+    position: absolute;
+    top: 18%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link4 button {
+    position: absolute;
+    top: 23.2%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link5 button {
+    position: absolute;
+    top: 28.4%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link6 button {
+    position: absolute;
+    top: 33.6%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link7 button {
+    position: absolute;
+    top: 38.8%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link8 button {
+    position: absolute;
+    top: 44%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+.nav-link9 button {
+    position: absolute;
+    top: 49.2%;
+    left: 0px;
+    width: 10%;
+    height: 5%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+
+.nav-link10 button {
+    position: absolute;
+    top: 54.4%;
+    left: 0px;
+    width: 10%;
+    height: 6%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+
+.nav-link11 button {
+    position: absolute;
+    top: 60.6%;
+    left: 0px;
+    width: 10%;
+    height: 6%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+
+.product-wrapper {
+    display: block;
+    width: 100%;
+    float: left;
+    transition: width .2s;
+}
+@media only screen and (min-width: 450px) {
+    .product-wrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .product-wrapper {
+        width: 33.333%;
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .product-wrapper {
+        width: 25%;
+    }
+}
+.product {
+    display: block;
+    border: 1px solid #b5e9a7;
+    border-radius: 3px;
+    position: relative;
+    background: #323232;
+    margin: 0 20px 20px 0;
+    text-decoration: none;
+    color: #474747;
+    z-index: 0;
+    height: 300px;
+}
+
+.product:hover {
+     filter: invert(15%);
+}
+h3 {
+    color: #323232;
+    position: relative;
+    left: 30px;
+}
+
+form {
+    text-align: center;
 }
