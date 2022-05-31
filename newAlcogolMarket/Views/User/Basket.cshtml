@@ -1,6 +1,7 @@
-﻿@model List<newAlcogolMarket.Models.Entities.BasketItem>
+﻿@model List<BasketItem>
 <body>
 	<div>
+		<table>
 		@foreach(var item in Model)
 		{
 		<a>
@@ -10,6 +11,7 @@
 			@item.Product.Price
 		</a>
 		}
+		</table>
 	</div>
 	<a>@ViewBag.TotalAmount</a>
 	<button>Оплатить</button>

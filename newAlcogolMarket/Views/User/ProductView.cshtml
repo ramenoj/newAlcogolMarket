@@ -1,5 +1,102 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model List<Product>
+<head>
+    <link rel="stylesheet" href="~/css/admin.css"/>
+</head>
+<body>
+<h3>Добавить Product</h3>
+<form asp-action="ProductAdd" style="display:flex;">
+    <p>
+        <label>Name</label><br />
+        <input type="text" name="Name" />
+    </p>
+    <p>
+        <label>Price</label><br />
+        <input type="text" name="Price" />
+    </p>
+    <p>
+        <label>Category</label><br />
+        <input type="text" name="Category.Name" />
+    </p>
+    <p>
+        <label>Size</label><br />
+        <input type="text" name="Size.Volume" />
+    </p>
+    <p>
+        <label>Strenght</label><br />
+        <input type="text" name="Strenght" />
+    </p>
+    <p>
+        <label>Country</label><br />
+        <input type="text" name="Country.Name" />
+    </p>
+    <input type="submit" value="Добавить" />
+</form>
+<br />
+
+@*<h3>Поиск по:</h3>
+<form asp-action="Milks" method="post" style="display:flex;">
+    <p>
+        <label>Name</label><br />
+        <input type="text" name="name" />
+    </p>
+    <input type="submit" value="Фильтр" />
+</form>*@
+        <table>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Category</td>
+                <td>Size</td>
+                <td>Strenght</td>
+                <td>Country</td>
+            </tr>
+        </table>
+@foreach(var item in Model)
+    {
+        <table>
+            
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Category.Name</td>
+            <td>@item.Size.Volume</td>
+            <td>@item.Strenght</td>
+            <td>@item.Country.Name</td>
+            <td style="display:flex;">
+                <form asp-controller="User" asp-action="DeleteProduct" method="post" asp-route-id="@item.Id" style="display:flex;">
+                    <input type="submit" value="Удалить">
+                </form>
+                <form asp-controller="User" asp-action="UpdateProduct" method="post" asp-route-id="@item.Id" style="display:flex;">
+                    <p>
+                        <label>Name</label><br/>
+                        <input type="text" name="Name" />
+                    </p>
+                    <p>
+                        <label>Price</label><br />
+                         <input type="text" name="Price" />
+                    </p>
+                    <p>
+                        <label>Category</label><br />
+                         <input type="text" name="Category.Name" />
+                    </p>
+                    <p>
+                        <label>Size</label><br />
+                         <input type="text" name="Size.Volume" />
+                    </p>
+                    <p>
+                        <label>Strenght</label><br />
+                         <input type="text" name="Strenght" />
+                    </p>
+                    <p>
+                        <label>Country</label><br />
+                         <input type="text" name="Country.Name" />
+                    </p>
+                        <input type="submit" value="Сохранить" />
+                </form>
+            </td>
+        </tr>
+        </table>
+    }
+</body>

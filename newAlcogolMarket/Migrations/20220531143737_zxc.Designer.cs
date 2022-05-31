@@ -12,8 +12,8 @@ using newAlcogolMarket.Models;
 namespace newAlcogolMarket.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220529220246_enddatabase")]
-    partial class enddatabase
+    [Migration("20220531143737_zxc")]
+    partial class zxc
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -104,6 +104,10 @@ namespace newAlcogolMarket.Migrations
                     b.Property<int>("CountryId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -129,24 +133,6 @@ namespace newAlcogolMarket.Migrations
                     b.HasIndex("SizeId");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entities.Recommendation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Recommendations");
                 });
 
             modelBuilder.Entity("newAlcogolMarket.Models.Entities.Size", b =>
@@ -255,17 +241,6 @@ namespace newAlcogolMarket.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Size");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entities.Recommendation", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("newAlcogolMarket.Models.Entities.User", b =>

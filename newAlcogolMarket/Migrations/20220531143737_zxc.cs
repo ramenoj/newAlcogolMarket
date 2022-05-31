@@ -4,7 +4,7 @@
 
 namespace newAlcogolMarket.Migrations
 {
-    public partial class @base : Migration
+    public partial class zxc : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

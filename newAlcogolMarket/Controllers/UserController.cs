@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using newAlcogolMarket.Manager.Categories;
 using newAlcogolMarket.Manager.Countries;
 using newAlcogolMarket.Manager.Products;
-using newAlcogolMarket.Manager.Recommendations;
 using newAlcogolMarket.Manager.Sizes;
 using newAlcogolMarket.Manager.Snacks;
 using newAlcogolMarket.Manager.Users;
@@ -18,17 +17,16 @@ namespace newAlcogolMarket.Controllers
     {
         private readonly IUserManager _userManager;
         private readonly IProductManager _productManager;
-        private readonly IRecommendationManager _recommendationManager;
+     
         private readonly ICategoryManager _categoryManager;
         private readonly ISizeManager _sizeManager;
         private readonly ISnackManager _snackManager;
         private readonly ICountryManager _countryManager;
 
-        public UserController(IUserManager usermanager, IRecommendationManager recommendationmanager, ICategoryManager category, ISizeManager size, ISnackManager snack, IProductManager productmanager,ICountryManager countrymanager)
+        public UserController(IUserManager usermanager, ICategoryManager category, ISizeManager size, ISnackManager snack, IProductManager productmanager,ICountryManager countrymanager)
         {
             _userManager = usermanager;
             _productManager = productmanager;
-            _recommendationManager = recommendationmanager;
             _categoryManager = category;
             _sizeManager= size;
             _snackManager = snack;
@@ -67,8 +65,8 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(User fakeuser)
         {
-            HttpContext.Session.SetInt32("UserId",fakeuser.Id);
             var user = _userManager.Get(fakeuser);
+            HttpContext.Session.SetInt32("UserId",user.Id);
             if (user == null)
             {
                 return RedirectToAction("SignIn");
@@ -94,6 +92,7 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> SignOut()
         {
+            HttpContext.Session.Remove("UserId");
             await HttpContext.SignOutAsync();
             return RedirectToAction("SignIn");
         }
@@ -105,7 +104,7 @@ namespace newAlcogolMarket.Controllers
             {
                 RedirectToAction("SignIn");
             }
-            User fakeuser = new User { Id = (int)userId };
+            var fakeuser = _userManager.Get(userId);
             var user = _userManager.Get(fakeuser);
             int totalAmount = 0;
             foreach(var item in user.BasketItems)
@@ -139,9 +138,31 @@ namespace newAlcogolMarket.Controllers
             }
             return RedirectToAction("AdminPanel");
         }
-        public IActionResult Products()
+        public async Task<IActionResult> ProductView()
         {
+            var products = await _productManager.GetAll();
+            return View(products);
+        }
+        public async Task<IActionResult> UserView()
+        {
+            var users=await _userManager.GetAll();
             return View();
+        }
+        public async Task<IActionResult> SnackView()
+        {
+            var snacks=await _snackManager.GetAll();
+            return View(snacks);
+        }
+        public async Task<IActionResult> SizeView()
+        {
+            var sizes=await _sizeManager.GetAll();
+            return View(sizes);
+        }
+
+        public async Task<IActionResult> CountryView()
+        {
+            var countries=await _countryManager.GetAll();
+            return View(countries);
         }
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product product)
@@ -150,14 +171,15 @@ namespace newAlcogolMarket.Controllers
             return RedirectToAction("AdminPanel");
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteProduct(Product product)
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            await _productManager.Delete(product.Id);
+            await _productManager.Delete(id);
             return RedirectToAction("AdminPanel");
         }
         [HttpPost]
-        public async Task<IActionResult> UpdateProduct(Product product)
+        public async Task<IActionResult> UpdateProduct(int id)
         {
+            var product = _productManager.Get(id);
             await _productManager.Update(product);
             return RedirectToAction("AdminPanel");
         }
@@ -261,6 +283,36 @@ namespace newAlcogolMarket.Controllers
         public async Task<IActionResult> FilterCountry(Country country)
         {
             await _countryManager.Filter(country.Name);
+            return RedirectToAction("AdminPanel");
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(Category category)
+        {
+            await _categoryManager.Add(category);
+            return RedirectToAction("AdminPanel");
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteCategory(Category category)
+        {
+            await _categoryManager.Delete(category.Id);
+            return RedirectToAction("AdminPanel");
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateCategory(Category category)
+        {
+            await _categoryManager.Update(category);
+            return RedirectToAction("AdminPanel");
+        }
+        [HttpPost]
+        public async Task<IActionResult> GetAllCategories()
+        {
+            await _categoryManager.GetAll();
+            return RedirectToAction("AdminPanel");
+        }
+        [HttpPost]
+        public async Task<IActionResult> FilterCategory(Category category)
+        {
+            await _categoryManager.Filter(category.Name);
             return RedirectToAction("AdminPanel");
         }
     }

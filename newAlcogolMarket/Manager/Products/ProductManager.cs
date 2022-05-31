@@ -42,7 +42,7 @@ namespace newAlcogolMarket.Manager.Products
 
         public async Task<List<Product>> GetAll()
         {
-            return await _context.Products.Include(x => x.Category).Include(x => x.Size).Include(x => x.Country).ToListAsync();
+            return await _context.Products.Include(x => x.Category).Include(x => x.Size).Include(x => x.Country).AsNoTracking().ToListAsync();
         }
 
         public async Task<List<Product>> GetAllByCategory(string categoryName)

@@ -12,8 +12,8 @@ using newAlcogolMarket.Models;
 namespace newAlcogolMarket.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220530200811_return")]
-    partial class @return
+    [Migration("20220531142609_blyat")]
+    partial class blyat
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -135,24 +135,6 @@ namespace newAlcogolMarket.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("newAlcogolMarket.Models.Entities.Recommendation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProductId");
-
-                    b.ToTable("Recommendations");
-                });
-
             modelBuilder.Entity("newAlcogolMarket.Models.Entities.Size", b =>
                 {
                     b.Property<int>("Id")
@@ -259,17 +241,6 @@ namespace newAlcogolMarket.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Size");
-                });
-
-            modelBuilder.Entity("newAlcogolMarket.Models.Entities.Recommendation", b =>
-                {
-                    b.HasOne("newAlcogolMarket.Models.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("newAlcogolMarket.Models.Entities.User", b =>

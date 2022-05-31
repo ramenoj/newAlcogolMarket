@@ -9,9 +9,8 @@ namespace newAlcogolMarket.Models
         public DbSet<Country> Countries { get; set; }
         public DbSet<Size> Sizes { get; set; }
         public DbSet<BasketItem> BasketItem { get; set; }
-        public DbSet<Recommendation> Recommendations { get; set; }
         public DbSet<User> Users { get; set; }
-        public DbSet<Snack> Snacks { get; set; } = null!;
+        public DbSet<Snack> Snacks { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {}
