@@ -54,5 +54,9 @@ namespace newAlcogolMarket.Manager.Users
         {
             return _context.Users.Include(u=>u.BasketItems).ThenInclude(b=>b.Product).FirstOrDefault(u => u.Login==user.Login);
         }
+        public User GetById(int id)
+        {
+            return _context.Users.Include(u => u.BasketItems).ThenInclude(b => b.Product).FirstOrDefault(u => u.Id==id);
+        }
     }
 }

@@ -92,7 +92,6 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> SignOut()
         {
-            HttpContext.Session.Remove("UserId");
             await HttpContext.SignOutAsync();
             return RedirectToAction("SignIn");
         }
@@ -104,8 +103,7 @@ namespace newAlcogolMarket.Controllers
             {
                 RedirectToAction("SignIn");
             }
-            var fakeuser = _userManager.Get(userId);
-            var user = _userManager.Get(fakeuser);
+            var user = _userManager.GetById((int)userId);
             int totalAmount = 0;
             foreach(var item in user.BasketItems)
             {
