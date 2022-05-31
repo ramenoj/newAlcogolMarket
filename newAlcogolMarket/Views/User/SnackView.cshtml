@@ -1,6 +1,6 @@
 ﻿@model List<Snack>
 <h3>Добавить Snack</h3>
-<form asp-action="SnackAdd" style="display:flex;">
+<form asp-action="AddSnack" style="display:flex;">
     <p>
         <label>Name</label><br />
         <input type="text" name="Name" />
@@ -12,6 +12,10 @@
     <p>
         <label>Weight</label><br />
         <input type="text" name="Weight" />
+    </p>
+    <p>
+        <label>Image</label><br />
+        <input type="text" name="Image" />
     </p>
     <input type="submit" value="Добавить" />
 </form>

@@ -34,9 +34,9 @@ namespace newAlcogolMarket.Manager.Snacks
             }
             return snacks;
         }
-        public Snack Get(Snack snack)
+        public Snack Get(int id)
         {
-            return _context.Snacks.FirstOrDefault(s => s.Id == snack.Id);
+            return _context.Snacks.FirstOrDefault(s => s.Id == id);
         }
 
         public async Task<List<Snack>> GetAll()

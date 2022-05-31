@@ -7,5 +7,6 @@
         public string Name { get; set; }
         public ushort Price { get; set; }
         public ushort Weight { get; set; }
+        public string Image { get; set; }
     }
 }

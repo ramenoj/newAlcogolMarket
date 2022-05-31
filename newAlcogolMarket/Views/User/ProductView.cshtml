@@ -4,7 +4,7 @@
 </head>
 <body>
 <h3>Добавить Product</h3>
-<form asp-action="ProductAdd" style="display:flex;">
+<form asp-action="AddProduct" asp-controller="User" style="display:flex;">
     <p>
         <label>Name</label><br />
         <input type="text" name="Name" />
@@ -14,12 +14,16 @@
         <input type="text" name="Price" />
     </p>
     <p>
+        <label>Rating</label><br />
+        <input type="text" name="Rating" />
+    </p>
+    <p>
         <label>Category</label><br />
-        <input type="text" name="Category.Name" />
+        <input type="text" name="CategoryId" />
     </p>
     <p>
         <label>Size</label><br />
-        <input type="text" name="Size.Volume" />
+        <input type="text" name="SizeId" />
     </p>
     <p>
         <label>Strenght</label><br />
@@ -27,7 +31,11 @@
     </p>
     <p>
         <label>Country</label><br />
-        <input type="text" name="Country.Name" />
+        <input type="text" name="CountryId" />
+    </p>
+     <p>
+        <label>Image</label><br />
+        <input type="text" name="Image" />
     </p>
     <input type="submit" value="Добавить" />
 </form>
@@ -43,28 +51,32 @@
 </form>*@
         <table>
             <tr>
-                <td>Id</td>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Category</td>
-                <td>Size</td>
-                <td>Strenght</td>
-                <td>Country</td>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Category</th>
+                <th>Size</th>
+                <th>Strenght</th>
+                <th>Country</th>
+                <th>Image</th>
+                <th></th>
             </tr>
         </table>
 @foreach(var item in Model)
     {
-        <table>
-            
+        <table style="text-align:center"> 
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
             <td>@item.Price</td>
+            <td>@item.Rating</td>
             <td>@item.Category.Name</td>
             <td>@item.Size.Volume</td>
             <td>@item.Strenght</td>
             <td>@item.Country.Name</td>
-            <td style="display:flex;">
+            <td>@item.Image</td>
+            <td style="position: relative;box-sizing: border-box; left: 100px; top: 0px;">
                 <form asp-controller="User" asp-action="DeleteProduct" method="post" asp-route-id="@item.Id" style="display:flex;">
                     <input type="submit" value="Удалить">
                 </form>

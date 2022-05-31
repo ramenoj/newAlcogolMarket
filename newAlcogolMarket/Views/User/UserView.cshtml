@@ -1,6 +1,6 @@
 ﻿@model List<User>
 <h3>Добавить User</h3>
-<form asp-action="UserAdd" style="display:flex;">
+<form asp-action="AddUser" style="display:flex;">
     <p>
         <label>Login</label><br />
         <input type="text" name="Login" />
@@ -9,10 +9,9 @@
         <label>Password</label><br />
         <input type="text" name="Password" />
     </p>
-   
     <input type="submit" value="Добавить" />
 </form>
-<br />
+<br/>
 <div>
         <table>
             <tr>

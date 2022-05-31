@@ -9,6 +9,6 @@ namespace newAlcogolMarket.Manager.Snacks
         Task Delete(int id);
         Task Update(Snack snack);
         Task<List<Snack>> Filter(string name);
-        Snack Get(Snack snack);
+        Snack Get(int id);
     }
 }

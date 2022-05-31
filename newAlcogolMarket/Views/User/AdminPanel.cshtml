@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Admin Panel";
 }
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
 </head>
 <body>
 <div class="head">
@@ -13,8 +13,8 @@
 </div>
 <div class="somecontainer">
     <nav class="leftmenu">
-        <a asp-action=""></a><br />
         <a asp-action="ProductView">Products</a><br />
+        <a asp-action="CategoryView">Categories</a><br />
         <a asp-action="UserView">Users</a><br />
         <a asp-action="SnackView">Snacks</a><br/>
         <a asp-action="SizeView">Sizes</a><br/>
