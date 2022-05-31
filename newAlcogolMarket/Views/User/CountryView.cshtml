@@ -1,13 +1,9 @@
-﻿@model List<Size>
-<h3>Добавить Size</h3>
-<form asp-action="SizeAdd" style="display:flex;">
+﻿@model List<Country>
+<h3>Добавить Country</h3>
+<form asp-action="CountryAdd" style="display:flex;">
     <p>
         <label>Name</label><br />
         <input type="text" name="Name" />
-    </p>
-    <p>
-        <label>Volume</label><br />
-        <input type="text" name="Volume" />
     </p>
     <input type="submit" value="Добавить" />
 </form>
@@ -17,17 +13,14 @@
             <tr>
                 <td>Id</td>
                 <td>Name</td>
-                <td>Volume</td>
             </tr>
         </table>
     @foreach(var item in Model)
     {
-        <table>
-            
+        <table>   
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
-            <td>@item.Volume</td>
         </tr>
         </table>
     }

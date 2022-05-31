@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using newAlcogolMarket.Manager.Categories;
+using newAlcogolMarket.Manager.Countries;
 using newAlcogolMarket.Manager.Products;
-using newAlcogolMarket.Manager.Recommendations;
+
 using newAlcogolMarket.Manager.Sizes;
 using newAlcogolMarket.Manager.Snacks;
 using newAlcogolMarket.Manager.Users;
@@ -15,10 +16,10 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 builder.Services.AddTransient<IUserManager, UserManager>();
 builder.Services.AddTransient<IProductManager, ProductManager>();
-builder.Services.AddTransient<IRecommendationManager, RecommendationManager>();
 builder.Services.AddTransient<ISizeManager, SizeManager>();
 builder.Services.AddTransient<ICategoryManager, CategoryManager>();
 builder.Services.AddTransient<ISnackManager, SnackManager>();
+builder.Services.AddTransient<ICountryManager, CountryManager>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession(options =>

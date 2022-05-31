@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Manager\Strengths\**" />
-    <Content Remove="Manager\Strengths\**" />
-    <EmbeddedResource Remove="Manager\Strengths\**" />
-    <None Remove="Manager\Strengths\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>

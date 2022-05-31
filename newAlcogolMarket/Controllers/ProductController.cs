@@ -1,19 +1,28 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using newAlcogolMarket.Manager.Products;
 
 namespace newAlcogolMarket.Controllers
 {
     public class ProductController : Controller
     {
-        public IActionResult Index(string tableName,int id)
+        private readonly IProductManager _manager;
+
+        public ProductController(IProductManager manager)
         {
-            switch (tableName)
+            _manager = manager;
+        }
+
+        public IActionResult Details(int id)
+        {
+            var product =  _manager.Get(id);
+            if(product == null)
             {
-                case "Absent":
-
-                break;
-
+                return NotFound();
             }
-            return View();
+            else
+            {
+                return View(product);
+            }
         }
     }
 }

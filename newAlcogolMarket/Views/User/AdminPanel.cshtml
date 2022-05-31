@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+</head>
+<body>
+<div class="head">
+    <h1>Админ страничка</h1>
+</div>
+<div class="somecontainer">
+    <nav class="leftmenu">
+        <a asp-action=""></a><br />
+        <a asp-action="ProductView">Products</a><br />
+        <a asp-action="UserView">Users</a><br />
+        <a asp-action="SnackView">Snacks</a><br />
+        <a asp-action="SizeView">Sizes</a><br/>
+        <a asp-action="CountryView">Countries</a><br />
+    </nav>
+</div>
+<div>
+    <button asp-action="SignOut" asp-controller="User">Выход</button>
+</div>
+</body>
+</html>

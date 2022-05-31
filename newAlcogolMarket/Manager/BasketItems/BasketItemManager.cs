@@ -28,9 +28,5 @@ namespace newAlcogolMarket.Manager.BasketItems
                 await _context.SaveChangesAsync();
             }
         }
-        public int Quantity(int count)
-        {
-            return count++;
-        }
     }
 }

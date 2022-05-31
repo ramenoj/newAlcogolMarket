@@ -35,24 +35,20 @@ namespace newAlcogolMarket.Manager.Products
             return products;
         }
 
-        public Product Get(Product product)
+        public Product Get(int id)
         {
-            return _context.Products.FirstOrDefault(u => u.Id == product.Id);
+            return _context.Products.Include(x=>x.Category).Include(x=>x.Country).Include(x=>x.Size).FirstOrDefault(u => u.Id == id);
         }
 
         public async Task<List<Product>> GetAll()
         {
-            return await _context.Products.AsNoTracking().ToListAsync();
+            return await _context.Products.Include(x => x.Category).Include(x => x.Size).Include(x => x.Country).AsNoTracking().ToListAsync();
         }
 
         public async Task<List<Product>> GetAllByCategory(string categoryName)
         {
-            _context.Sizes.Load();
-            _context.Countries.Load();
-            _context.Categories.Load();
-            return await _context.Products.Where(x => x.Category.Name == categoryName).AsNoTracking().ToListAsync();
+            return await _context.Products.Include(x=>x.Category).Include(x => x.Size).Include(x => x.Country).Where(x => x.Category.Name == categoryName).ToListAsync();
         }
-
         public async Task Update(Product product)
         {
             _context.Products.Update(product);
