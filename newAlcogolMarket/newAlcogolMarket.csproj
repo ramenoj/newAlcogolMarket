@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Manager\Sizes\**" />
+    <Compile Remove="Manager\Sizer\**" />
     <Compile Remove="Manager\Strengths\**" />
-    <Content Remove="Manager\Sizes\**" />
+    <Content Remove="Manager\Sizer\**" />
     <Content Remove="Manager\Strengths\**" />
-    <EmbeddedResource Remove="Manager\Sizes\**" />
+    <EmbeddedResource Remove="Manager\Sizer\**" />
     <EmbeddedResource Remove="Manager\Strengths\**" />
-    <None Remove="Manager\Sizes\**" />
+    <None Remove="Manager\Sizer\**" />
     <None Remove="Manager\Strengths\**" />
   </ItemGroup>
 

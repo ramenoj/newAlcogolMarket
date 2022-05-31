@@ -3,11 +3,24 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using newAlcogolMarket.Models;
 using newAlcogolMarket.Manager.Users;
+using newAlcogolMarket.Manager.Products;
+using newAlcogolMarket.Manager.Snacks;
 
 namespace HelloMvcApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IProductManager ProductManager;
+        private readonly ISnackManager SnackManager;
+        public HomeController(IProductManager productManager, ISnackManager snackManager)
+        {
+            ProductManager = productManager;
+            SnackManager = snackManager;
+        }
+
+        
+
+        
         public IActionResult Privacy()
         {
             return View();
@@ -17,54 +30,71 @@ namespace HelloMvcApp.Controllers
             return View();
         }
 
-        public IActionResult Wine()
+        public async Task<IActionResult> Wine()
         {
-            return View();
+            var Wine = await ProductManager.GetAllByCategory("Вино");
+            return View(Wine);
         }
 
-        public IActionResult Liquor()
+        public async Task<IActionResult> Liquor()
         {
-            return View();
+            var Liquor = await ProductManager.GetAllByCategory("Ликер");
+            return View(Liquor);
         }
 
-        public IActionResult Champagne()
+        public async Task<IActionResult> Champagne()
         {
-            return View();
+            var Champagne = await ProductManager.GetAllByCategory("Шампанское");
+            return View(Champagne);
         }
 
-        public IActionResult Whisky()
+        public async Task<IActionResult> Whisky()
         {
-            return View();
+            var Whisky = await ProductManager.GetAllByCategory("Виски");
+            return View(Whisky);
         }
 
-        public IActionResult Cognac()
+        public async Task<IActionResult> Cognac()
         {
-            return View();
+            var Cognac = await ProductManager.GetAllByCategory("Коньяк");
+            return View(Cognac);
         }
 
-        public IActionResult beer()
+        public async Task<IActionResult> Beer()
         {
-            return View();
+            var beer = await ProductManager.GetAllByCategory("Пиво");
+            return View(beer);
         }
 
-        public IActionResult Absinthe()
+        public async Task<IActionResult> Absinthe()
         {
-            return View();
+            var absinthe = await ProductManager.GetAllByCategory("Абсент");
+            return View(absinthe);
+
         }
 
-        public IActionResult Vodka()
+        public async Task<IActionResult> Vodka()
         {
-            return View();
+            var Vodka = await ProductManager.GetAllByCategory("Водка");
+            return View(Vodka);
         }
 
-        public IActionResult Snacks()
+        public async Task<IActionResult> Snacks()
         {
-            return View();
+            var Snacks = await SnackManager.GetAll();
+            return View(Snacks);
         }
 
-        public IActionResult Softdrinks()
+        public async Task<IActionResult> Rom()
         {
-            return View();
+            var Rom = await ProductManager.GetAllByCategory("Ром");
+            return View(Rom);
+        }
+
+        public async Task<IActionResult> Tequilla()
+        {
+            var Tequilla = await ProductManager.GetAllByCategory("Текила");
+            return View(Tequilla);
         }
 
         public IActionResult Index()
@@ -72,6 +102,7 @@ namespace HelloMvcApp.Controllers
             return View();
         }
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
 
 
 

@@ -29,9 +29,15 @@ namespace newAlcogolMarket.Manager.Snacks
             return snacks;
         }
 
+        public Snack Get(Snack snack)
+        {
+            return _context.Snacks.FirstOrDefault(s => s.Id == snack.Id);
+        }
+
         public async Task<List<Snack>> GetAll()
         {
-            return await _context.Snacks.AsNoTracking().ToListAsync();
+            //return await _context.Snacks.Include(x => x.Weight).ToListAsync();
+            //return await _context.Snacks.ToListAsync();
         }
 
         public async Task Update(Snack snack)

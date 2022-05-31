@@ -68,11 +68,6 @@ img :hover {
     filter: invert(100%);
 }
 
-p {
-    color: #323232;
-    text-align: center;
-}
-
 h1 {
     color: #323232;
     text-align: center;
@@ -121,6 +116,10 @@ h2 {
 }
 .nav-link10 button:hover {
     color:  deeppink;
+    filter: invert(15%);
+}
+.nav-link11 button:hover {
+    color: deeppink;
     filter: invert(15%);
 }
 li {
@@ -249,6 +248,20 @@ li {
 .nav-link10 button {
     position: absolute;
     top: 54.4%;
+    left: 0px;
+    width: 10%;
+    height: 6%;
+    margin-bottom: 10px;
+    background: #323232;
+    color: #FFF2F9;
+    font-weight: bold;
+    box-shadow: #FA4EAB;
+    display: block;
+}
+
+.nav-link11 button {
+    position: absolute;
+    top: 60.6%;
     left: 0px;
     width: 10%;
     height: 6%;

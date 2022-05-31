@@ -11,5 +11,6 @@
         public int Quantity { get; set; }
         public DateTime DateCreated { get; set; }
         public int UserId { get; set; }
+
     }
 }
