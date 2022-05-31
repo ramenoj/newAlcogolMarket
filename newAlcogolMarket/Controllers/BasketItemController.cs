@@ -7,8 +7,8 @@ namespace newAlcogolMarket.Controllers
     public class BasketItemController : Controller
     {
 
-        private readonly BasketItemManager _manager;
-        public BasketItemController(BasketItemManager manager)
+        private readonly IBasketItemManager _manager;
+        public BasketItemController(IBasketItemManager manager)
         {
             _manager = manager;
         }
@@ -25,7 +25,7 @@ namespace newAlcogolMarket.Controllers
                 DateCreated = DateTime.Now,
             };
             await _manager.Create(item);
-            return RedirectToRoute("Item/Details/" + productId);
+            return Redirect("/Product/Details/" + productId);
         }
         public async Task<IActionResult> Delete(int Id)
         {

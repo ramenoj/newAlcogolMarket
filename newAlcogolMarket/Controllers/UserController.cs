@@ -17,7 +17,6 @@ namespace newAlcogolMarket.Controllers
     {
         private readonly IUserManager _userManager;
         private readonly IProductManager _productManager;
-     
         private readonly ICategoryManager _categoryManager;
         private readonly ISizeManager _sizeManager;
         private readonly ISnackManager _snackManager;
@@ -66,11 +65,11 @@ namespace newAlcogolMarket.Controllers
         public async Task<IActionResult> SignIn(User fakeuser)
         {
             var user = _userManager.Get(fakeuser);
-            HttpContext.Session.SetInt32("UserId",user.Id);
             if (user == null)
             {
                 return RedirectToAction("SignIn");
             }
+            HttpContext.Session.SetInt32("UserId",user.Id);
             
             var claims = new List<Claim>
             {
@@ -166,152 +165,152 @@ namespace newAlcogolMarket.Controllers
         public async Task<IActionResult> AddProduct(Product product)
         {
             await _productManager.Add(product);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("ProductView");
         }
         [HttpPost]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             await _productManager.Delete(id);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("ProductView");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateProduct(int id)
         {
             var product = _productManager.Get(id);
             await _productManager.Update(product);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("ProductView");
         }
         [HttpPost]
         public async Task<IActionResult> GetAllProduct(Product product)
         {
             await _productManager.GetAll();
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("ProductView");
         }
         [HttpPost]
         public async Task<IActionResult> FilterProduct(Product product)
         {
             await _productManager.Filter(product.Name);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("ProductView");
         }
         [HttpPost]
         public async Task<IActionResult> AddSize(Size size)
         {
             await _sizeManager.Add(size);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SizeView");
         }
         [HttpPost]
         public async Task<IActionResult> DeleteSize(Size size)
         {
             await _sizeManager.Delete(size.Id);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SizeView");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateSize(Size size)
         {
             await _sizeManager.Update(size);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SizeView");
         }
         [HttpPost]
         public async Task<IActionResult> GetAllSize()
         {
             await _sizeManager.GetAll();
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SizeView");
         }
         [HttpPost]
         public async Task<IActionResult> FilterProduct(Size size)
         {
             await _sizeManager.Filter(size);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SizeView");
         }
         [HttpPost]
         public async Task<IActionResult> AddSnack(Snack snack)
         {
             await _snackManager.Add(snack);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SnackView");
         }
         [HttpPost]
         public async Task<IActionResult> DeleteSnack(Snack snack)
         {
             await _snackManager.Delete(snack.Id);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SnackView");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateSnack(Snack snack)
         {
             await _snackManager.Update(snack);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SnackView");
         }
         [HttpPost]
         public async Task<IActionResult> GetAllSnack()
         {
             await _snackManager.GetAll();
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SnackView");
         }
         [HttpPost]
         public async Task<IActionResult> FilterSnack(Snack snack)
         {
             await _snackManager.Filter(snack.Name);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("SnackView");
         }
         [HttpPost]
         public async Task<IActionResult> AddCountry(Country country)
         {
             await _countryManager.Add(country);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CountryView");
         }
         [HttpPost]
         public async Task<IActionResult> DeleteCountry(Country country)
         {
             await _countryManager.Delete(country.Id);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CountryView");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateCountry(Country country)
         {
             await _countryManager.Update(country);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CountryView");
         }
         [HttpPost]
         public async Task<IActionResult> GetAllCountry()
         {
             await _snackManager.GetAll();
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CountryView");
         }
         [HttpPost]
         public async Task<IActionResult> FilterCountry(Country country)
         {
             await _countryManager.Filter(country.Name);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CountryView");
         }
         [HttpPost]
         public async Task<IActionResult> AddCategory(Category category)
         {
             await _categoryManager.Add(category);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CategoryView");
         }
         [HttpPost]
         public async Task<IActionResult> DeleteCategory(Category category)
         {
             await _categoryManager.Delete(category.Id);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CategoryView");
         }
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(Category category)
         {
             await _categoryManager.Update(category);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CategoryView");
         }
         [HttpPost]
         public async Task<IActionResult> GetAllCategories()
         {
             await _categoryManager.GetAll();
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CategoryView");
         }
         [HttpPost]
         public async Task<IActionResult> FilterCategory(Category category)
         {
             await _categoryManager.Filter(category.Name);
-            return RedirectToAction("AdminPanel");
+            return RedirectToAction("CategoryView");
         }
     }
 }

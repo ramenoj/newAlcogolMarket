@@ -24,6 +24,12 @@ namespace newAlcogolMarket.Manager.Products
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
         }
+        public async Task<List<Product>> FilterByRating()
+        {
+            var products = await GetAll();
+            products = products.OrderBy(x => x.Rating).Take(8).ToList();
+            return products;
+        }
 
         public async Task<List<Product>> Filter(string name)
         {

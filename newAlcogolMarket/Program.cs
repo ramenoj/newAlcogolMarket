@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using newAlcogolMarket.Manager.BasketItems;
 using newAlcogolMarket.Manager.Categories;
 using newAlcogolMarket.Manager.Countries;
 using newAlcogolMarket.Manager.Products;
@@ -20,6 +21,7 @@ builder.Services.AddTransient<ISizeManager, SizeManager>();
 builder.Services.AddTransient<ICategoryManager, CategoryManager>();
 builder.Services.AddTransient<ISnackManager, SnackManager>();
 builder.Services.AddTransient<ICountryManager, CountryManager>();
+builder.Services.AddTransient<IBasketItemManager,BasketItemManager>();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSession(options =>
