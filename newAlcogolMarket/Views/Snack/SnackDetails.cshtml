@@ -1,4 +1,4 @@
-﻿@model newAlcogolMarket.Models.ProductViewModel
+﻿@*@model newAlcogolMarket.Models.SnackViewModel
 <body>
 	<style>
 		.Important{
@@ -28,20 +28,17 @@ form {
     font-size:14px;
     font-weight:700;
 }
-	</style>
-	<p class="Important">@Model.Product.Category.Name
-	@Model.Product.Name</p><br/>
-	<p class="NotImpRight">Страна производитель: @Model.Product.Country.Name</p><br/>
-	<p class="NotImpLeft"><img src="@Model.Product.Image" width="202" height="332"></p><br/>
-	<b class="NotImpLeft2">Рейтинг: @Model.Product.Rating / 5<br/>
-	Стоимость: @Model.Product.Price Руб<br/></b>
-	<div class="knopka">
+	@*</style>
+	<p class="Important">@Model.Snack.Name</p>
+	<p class="NotImpLeft"><img src="@Model.Snack.Image" width="202" height="332"></p><br/>
+	<b class="NotImpLeft2">*@
+@*@*Стоимость: @Model.Snack.Price Руб<br/></b>
+	@*<div class="knopka">
 	<form method="post">
 	<input asp-for="Amount"/>
 	<input type="submit" value="Добавить в корзину" class="btn btn-primary"/>
 	<input type="hidden" asp-for="Product.Id"/>
 	</form>
 	<div/>
-	@*<a href="BasketItem/Add?productId=@Model.Id&quantity="></a>
-	"/books/list?centuryId=@cent.Id"*@
-</body>
+	
+</body>*@
