@@ -101,7 +101,7 @@ namespace newAlcogolMarket.Controllers
             var userId=HttpContext.Session.GetInt32("UserId");
             if (userId==null)
             {
-                RedirectToAction("SignIn");
+               return RedirectToAction("SignIn");
             }
             var user = _userManager.GetById((int)userId);
             int totalAmount = 0;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using newAlcogolMarket.Manager.Products;
+using newAlcogolMarket.Models;
 
 namespace newAlcogolMarket.Controllers
 {
@@ -21,8 +22,13 @@ namespace newAlcogolMarket.Controllers
             }
             else
             {
-                return View(product);
+                return View(new ProductViewModel { Product = product});
             }
+        }
+        [HttpPost]
+        public IActionResult Details(ProductViewModel model)
+        {
+            return Redirect("/BasketItem/Add?productId="+model.Product.Id+"&quantity="+model.Amount);
         }
     }
 }

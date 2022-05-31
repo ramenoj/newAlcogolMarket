@@ -1,11 +1,12 @@
-﻿@model newAlcogolMarket.Models.Entities.Product
+﻿@model newAlcogolMarket.Models.ProductViewModel 
 <body>
 	
-	<a>@Model.Name</a>
-	<a>@Model.Price</a>
+	<a>@Model.Product.Name</a>
+	<a>@Model.Product.Price</a>
 	<form method="post">
-	<input name="quantity"/>
-	<button>Добавить</button>
+	<input asp-for="Amount"/>
+	<input type="submit" value="Добавить" class="btn btn-primary"/>
+	<input type="hidden" asp-for="Product.Id"/>
 	</form>
 	@*<a href="BasketItem/Add?productId=@Model.Id&quantity="></a>
 	"/books/list?centuryId=@cent.Id"*@
