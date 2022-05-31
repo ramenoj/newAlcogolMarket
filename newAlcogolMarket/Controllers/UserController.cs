@@ -91,6 +91,7 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> SignOut()
         {
+            HttpContext.Session.Remove("UserId");
             await HttpContext.SignOutAsync();
             return RedirectToAction("SignIn");
         }
@@ -100,7 +101,7 @@ namespace newAlcogolMarket.Controllers
             var userId=HttpContext.Session.GetInt32("UserId");
             if (userId==null)
             {
-                RedirectToAction("SignIn");
+               return RedirectToAction("SignIn");
             }
             var user = _userManager.GetById((int)userId);
             int totalAmount = 0;
@@ -143,7 +144,7 @@ namespace newAlcogolMarket.Controllers
         public async Task<IActionResult> UserView()
         {
             var users=await _userManager.GetAll();
-            return View();
+            return View(users);
         }
         public async Task<IActionResult> SnackView()
         {
@@ -160,6 +161,11 @@ namespace newAlcogolMarket.Controllers
         {
             var countries=await _countryManager.GetAll();
             return View(countries);
+        }
+        public async Task<IActionResult> CategoryView()
+        {
+            var categories = await _categoryManager.GetAll();
+            return View(categories);
         }
         [HttpPost]
         public async Task<IActionResult> AddProduct(Product product)
@@ -193,6 +199,37 @@ namespace newAlcogolMarket.Controllers
             return RedirectToAction("ProductView");
         }
         [HttpPost]
+        public async Task<IActionResult> AddUser(User user)
+        {
+            await _userManager.Add(user);
+            return RedirectToAction("UserView");
+        }
+        [HttpPost]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            await _userManager.Delete(id);
+            return RedirectToAction("UserView");
+        }
+        [HttpPost]
+        public async Task<IActionResult> UpdateUser(int id)
+        {
+            var user = _userManager.GetById(id);
+            await _userManager.Update(user);
+            return RedirectToAction("UserView");
+        }
+        [HttpPost]
+        public async Task<IActionResult> GetAllUser()
+        {
+            await _userManager.GetAll();
+            return RedirectToAction("UserView");
+        }
+        [HttpPost]
+        public async Task<IActionResult> FilterUser(User user)
+        {
+            await _userManager.Filter(user.Login);
+            return RedirectToAction("UserView");
+        }
+        [HttpPost]
         public async Task<IActionResult> AddSize(Size size)
         {
             await _sizeManager.Add(size);
@@ -217,7 +254,7 @@ namespace newAlcogolMarket.Controllers
             return RedirectToAction("SizeView");
         }
         [HttpPost]
-        public async Task<IActionResult> FilterProduct(Size size)
+        public async Task<IActionResult> FilterSize(Size size)
         {
             await _sizeManager.Filter(size);
             return RedirectToAction("SizeView");

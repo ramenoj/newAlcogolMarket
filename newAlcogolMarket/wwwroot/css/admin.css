@@ -1,61 +1,26 @@
 ﻿table {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-align:center;
+    table-layout: fixed;
+    width: 85%;
     border-collapse: collapse;
-    color: #686461;
+    border: 3px solid purple;
 }
-
-caption {
-    padding: 10px;
-    color: white;
-    background: #8FD4C1;
-    font-size: 18px;
-    text-align: left;
-    font-weight: bold;
-}
-
-th {
-    border-bottom: 3px solid #B9B29F;
-    padding: 10px;
-    text-align: left;
-}
-
 td {
-    padding: 10px;
+    font-size: 10px;
+}
+thead th:nth-child(1) {
+    width: 30%;
 }
 
-tr:nth-child(odd) {
-    background: white;
+thead th:nth-child(2) {
+    width: 20%;
 }
 
-tr:nth-child(even) {
-    background: #E8E6D1;
+thead th:nth-child(3) {
+    width: 15%;
 }
 
-
-
-.head {
-    display: flex;
-    border-bottom: 2px solid black;
+thead th:nth-child(4) {
+    width: 35%;
 }
 
-.somecontainer {
-    display: flex;
-}
-
-h1 {
-    flex: 4;
-}
-
-.somebuttons {
-    flex: 1;
-    margin-top: 33px;
-}
-
-.leftmenu {
-    flex: 1;
-    border-right: 1px solid black;
-}
-
-main {
-    flex: 9;
-}
