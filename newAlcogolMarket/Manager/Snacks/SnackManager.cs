@@ -6,6 +6,12 @@ namespace newAlcogolMarket.Manager.Snacks
     public class SnackManager : ISnackManager
     {
         private readonly ApplicationContext _context;
+
+        public SnackManager(ApplicationContext context)
+        {
+            _context = context;
+        }
+
         public async Task Add(Snack snack)
         {
             _context.Snacks.Add(snack);
@@ -28,7 +34,6 @@ namespace newAlcogolMarket.Manager.Snacks
             }
             return snacks;
         }
-
         public Snack Get(Snack snack)
         {
             return _context.Snacks.FirstOrDefault(s => s.Id == snack.Id);
@@ -37,7 +42,7 @@ namespace newAlcogolMarket.Manager.Snacks
         public async Task<List<Snack>> GetAll()
         {
             //return await _context.Snacks.Include(x => x.Weight).ToListAsync();
-            //return await _context.Snacks.ToListAsync();
+            return await _context.Snacks.ToListAsync();
         }
 
         public async Task Update(Snack snack)

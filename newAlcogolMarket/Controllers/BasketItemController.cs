@@ -32,8 +32,5 @@ namespace newAlcogolMarket.Controllers
             await _manager.Delete(Id);
             return RedirectToAction("Basket", "User");
         }
-       
-
-        
     }
 }
