@@ -18,7 +18,7 @@
         public int SizeId { get; set; }
         [ForeignKey(nameof(SizeId))]
         public Size Size { get; set; }
-        public string Image { get; set; }
+       
 
     }
 }

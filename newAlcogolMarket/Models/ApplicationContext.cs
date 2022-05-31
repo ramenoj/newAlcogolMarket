@@ -10,6 +10,7 @@ namespace newAlcogolMarket.Models
         public DbSet<BasketItem> BasketItem { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Snack> Snacks { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {}
