@@ -5,7 +5,8 @@ namespace newAlcogolMarket.Manager.Users
     public interface IUserManager
     {
         Task<List<User>> GetAll();
-        User Get(int id);
+        User Get(User user);
+        User GetById(int id);
         Task Add(User user);
         Task Delete(int id);
         Task Update(User user);
