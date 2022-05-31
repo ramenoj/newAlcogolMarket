@@ -5,18 +5,25 @@
 <head>
         <meta charset="utf-8">
         <link href="site.css" rel="stylesheet">
-        <title>BEDOLAGI-Абсент</title>
+		<style>
+   .prod {
+    text-align: center;
+	color: white;
+   }
+  </style>
+        <title>BEDOLAGI-Закуски</title>
 </head>
 <body>
-	<h3>Абсент:</h3>
+	<h3>Закуски:</h3>
 	<div style="display:flex; ">
 		@foreach(var item in Model){
 			
 			<li class="product-wrapper">
-			<a href="" class="product" >
+			<a  class="product" >
+				
+				<p class="prod"><img src="@item.Image" width="68" height="111"><br>
 				@item.Name<br>
-				@item.Name<br>
-				@item.Price<br>
+				@item.Price руб</p>
 				</a>
 			</li>
 			

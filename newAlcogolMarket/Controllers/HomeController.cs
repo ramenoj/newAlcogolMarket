@@ -97,6 +97,10 @@ namespace HelloMvcApp.Controllers
             return View(Tequilla);
         }
 
+        public IActionResult Details()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();

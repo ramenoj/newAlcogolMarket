@@ -17,7 +17,7 @@ string connection = builder.Configuration.GetConnectionString("DefaultConnection
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 builder.Services.AddTransient<IUserManager, UserManager>();
 builder.Services.AddTransient<IProductManager, ProductManager>();
-
+builder.Services.AddTransient<IBasketItemManager, BasketItemManager>();
 builder.Services.AddTransient<ISizeManager, SizeManager>();
 builder.Services.AddTransient<ICategoryManager, CategoryManager>();
 builder.Services.AddTransient<ISnackManager, SnackManager>();
