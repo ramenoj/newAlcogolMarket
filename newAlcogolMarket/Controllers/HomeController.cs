@@ -17,10 +17,6 @@ namespace HelloMvcApp.Controllers
             ProductManager = productManager;
             SnackManager = snackManager;
         }
-
-        
-
-        
         public IActionResult Privacy()
         {
             return View();
@@ -101,9 +97,10 @@ namespace HelloMvcApp.Controllers
         {
             return View();
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var products = await ProductManager.FilterByRating();
+            return View(products);
         }
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 

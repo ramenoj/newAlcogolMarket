@@ -27,7 +27,7 @@ namespace newAlcogolMarket.Manager.Products
         public async Task<List<Product>> FilterByRating()
         {
             var products = await GetAll();
-            products = products.OrderBy(x => x.Rating).Take(8).ToList();
+            products = products.Where(x=>x.Rating==5).Take(8).ToList();
             return products;
         }
 

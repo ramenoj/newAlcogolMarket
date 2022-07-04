@@ -1,4 +1,8 @@
 ﻿@model List<Category>
+<head>
+    <link rel="stylesheet" href="~/css/admin.css"/>
+</head>
+<body>
 <h3>Добавить Category</h3>
 <form asp-action="AddCategory" style="display:flex;">
     <p>
@@ -8,6 +12,16 @@
     <input type="submit" value="Добавить" />
 </form>
 <br />
+<div class="somecontainer">
+    <nav class="leftmenu">
+        <a asp-action="ProductView">Products</a><br />
+        <a asp-action="CategoryView">Categories</a><br />
+        <a asp-action="UserView">Users</a><br />
+        <a asp-action="SnackView">Snacks</a><br/>
+        <a asp-action="SizeView">Sizes</a><br/>
+        <a asp-action="CountryView">Countries</a><br/>
+    </nav>
+</div>
 <div>
         <table>
             <tr>
@@ -21,7 +35,20 @@
         <tr>
             <td>@item.Id</td>
             <td>@item.Name</td>
+            <td style="position: relative;box-sizing: border-box; top: 0px;">
+                <form asp-controller="User" asp-action="DeleteCategory" method="post" asp-route-id="@item.Id" style="display:flex;">
+                    <input type="submit" value="Удалить">
+                </form>
+                <form asp-controller="User" asp-action="UpdateCategory" method="post" asp-route-id="@item.Id" style="display:flex;">
+                    <p>
+                        <label>Name</label><br/>
+                        <input type="text" name="Name" />
+                    </p>
+                    <input type="submit" value="Сохранить" />
+                </form>
+            </td>
         </tr>
         </table>
     }
 </div>
+</body>

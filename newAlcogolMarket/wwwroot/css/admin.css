@@ -7,6 +7,7 @@
 }
 td {
     font-size: 10px;
+    left:35%;
 }
 thead th:nth-child(1) {
     width: 30%;
@@ -22,5 +23,8 @@ thead th:nth-child(3) {
 
 thead th:nth-child(4) {
     width: 35%;
+}
+.somecontainer{
+    margin-left: -6%;
 }
 

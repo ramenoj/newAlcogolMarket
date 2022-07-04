@@ -40,8 +40,7 @@ namespace newAlcogolMarket.Manager.Snacks
         }
 
         public async Task<List<Snack>> GetAll()
-        {
-            //return await _context.Snacks.Include(x => x.Weight).ToListAsync();
+        { 
             return await _context.Snacks.ToListAsync();
         }
 

@@ -20,8 +20,8 @@ namespace newAlcogolMarket.Manager.Categories
 
         public async Task Delete(int id)
         {
-            var category = _context.Products.FirstOrDefault(x => x.Id == id);
-            _context.Products.Remove(category);
+            var category = _context.Categories.FirstOrDefault(x => x.Id == id);
+            _context.Categories.Remove(category);
             await _context.SaveChangesAsync();
         }
 

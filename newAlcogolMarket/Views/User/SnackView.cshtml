@@ -1,4 +1,7 @@
 ﻿@model List<Snack>
+<head>
+    <link rel="stylesheet" href="~/css/admin.css"/>
+</head>
 <h3>Добавить Snack</h3>
 <form asp-action="AddSnack" style="display:flex;">
     <p>
@@ -19,6 +22,16 @@
     </p>
     <input type="submit" value="Добавить" />
 </form>
+<div class="somecontainer">
+    <nav class="leftmenu">
+        <a asp-action="ProductView">Products</a><br />
+        <a asp-action="CategoryView">Categories</a><br />
+        <a asp-action="UserView">Users</a><br />
+        <a asp-action="SnackView">Snacks</a><br/>
+        <a asp-action="SizeView">Sizes</a><br/>
+        <a asp-action="CountryView">Countries</a><br/>
+    </nav>
+</div>
 <br />
 <div>
         <table>
@@ -27,6 +40,7 @@
                 <td>Name</td>
                 <td>Price</td>
                 <td>Weight</td>
+                <td>Image</td>
             </tr>
         </table>
     @foreach(var item in Model)
@@ -37,6 +51,31 @@
             <td>@item.Name</td>
             <td>@item.Price</td>
             <td>@item.Weight</td>
+            <td>@item.Image</td>
+            <td style="position: relative;box-sizing: border-box; top: 0px;">
+                <form asp-controller="User" asp-action="DeleteProduct" method="post" asp-route-id="@item.Id" style="display:flex;">
+                    <input type="submit" value="Удалить">
+                </form>
+                <form asp-controller="User" asp-action="UpdateProduct" method="post" asp-route-id="@item.Id" style="display:flex;">
+                    <p>
+                        <label>Name</label><br/>
+                        <input type="text" name="Name" />
+                    </p>
+                    <p>
+                        <label>Price</label><br />
+                         <input type="text" name="Price" />
+                    </p>
+                    <p>
+                        <label>Weight</label><br />
+                         <input type="text" name="Weight" />
+                    </p>
+                    <p>
+                        <label>Image</label><br />
+                         <input type="text" name="Image" />
+                    </p>
+                   <input type="submit" value="Сохранить" />
+                </form>
+            </td>
         </tr>
         </table>
     }

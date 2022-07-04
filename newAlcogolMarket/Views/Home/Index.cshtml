@@ -1,16 +1,25 @@
+@model List<Product>
 @{
     ViewData["Title"] = "Главная";
 }
 <head>
         <meta charset="utf-8">
         <link href="site.css" rel="stylesheet">
+        <style >
+            .prod {
+    text-align: center;
+	color: white;
+   }
+  </style>
+        </style>
         <title>BEDOLAGI-Алкомаркет</title>
 </head>
 <body>
     <header>
+        <div class="nav-itemleft">
+    <ul class="navbar-nav flex-grow-1" >
         
-    <ul class="navbar-nav flex-grow-1">
-<li class="nav-item2">
+<li class="nav-item">
 <a class="nav-link1 " asp-controller="Home" asp-action="Wine"><button>Вина</button></a>
 </li>
 <li class="nav-item">
@@ -44,36 +53,29 @@
  <a class="nav-link11 " asp-area="" asp-controller="Home" asp-action="Snacks"><button>Закуски</button></a>
  </li>
     </ul>
+    </div>
     </header>
     <h3>Наш выбор:</h3>
     <audio src="https://d9olupt5igjta.cloudfront.net/samples/sample_files/9311/6f8f60c287ae8c7aafb18581ed28a07fbb4db222/mp3/347561-micheal-bay-hit.mp3?1512767778" autoplay></audio>
-    <ul class="products clearfix">
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-	<li class="product-wrapper">
-		<a href="" class="product"></a>
-	</li>
-</ul>
-
+	<div style="display:flex; ">
+        <div class="nav-item">
+		@foreach(var item in Model){
+			
+			<li class="product-wrapper">
+			<a  class="product" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id">
+				
+				<p class="prod"><img src="@item.Image" width="101" height="166"><br>
+				@item.Name<br>
+				@item.Country.Name<br>
+				Рейтинг: @item.Rating / 5<br>
+				@item.Price руб</p>
+				</a>
+			</li>
+			
+		}
+        </div>
+	</div>
+    
     <script>
         var bMusic = new Audio('/*https://d9olupt5igjta.cloudfront.net/samples/sample_files/9311/6f8f60c287ae8c7aafb18581ed28a07fbb4db222/mp3/347561-micheal-bay-hit.mp3?1512767778*/')
 	bMusic.play()

@@ -33,5 +33,13 @@ namespace newAlcogolMarket.Manager.BasketItems
         {
             throw new NotImplementedException();
         }
+        public async Task Clear()
+        {
+            foreach(var item in _context.BasketItem)
+            {
+                _context.BasketItem.Remove(item);
+            }
+            await _context.SaveChangesAsync();
+        }
     }
 }

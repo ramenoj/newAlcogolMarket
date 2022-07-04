@@ -44,6 +44,19 @@ namespace newAlcogolMarket.Controllers
         }
         public IActionResult SignIn()
         {
+            if (HttpContext.Session.GetInt32("UserId") != null)
+            {
+                var Id = (int)HttpContext.Session.GetInt32("UserId");
+                var user = _userManager.GetById(Id);
+            if (user != null && user.Login == "admin")
+            {
+                return RedirectToAction("AdminPanel");
+            }
+            else if (user != null)
+                return RedirectToAction("UserPanel");
+            }
+            
+
             return View();
         }
         public IActionResult Register()
@@ -64,13 +77,15 @@ namespace newAlcogolMarket.Controllers
         [HttpPost]
         public async Task<IActionResult> SignIn(User fakeuser)
         {
+            
             var user = _userManager.Get(fakeuser);
             if (user == null)
             {
                 return RedirectToAction("SignIn");
             }
+
             HttpContext.Session.SetInt32("UserId",user.Id);
-            
+
             var claims = new List<Claim>
             {
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
@@ -136,6 +151,11 @@ namespace newAlcogolMarket.Controllers
             }
             return RedirectToAction("AdminPanel");
         }
+        public IActionResult Thanks()
+        {
+            return View();
+        }
+       
         public async Task<IActionResult> ProductView()
         {
             var products = await _productManager.GetAll();
@@ -326,9 +346,9 @@ namespace newAlcogolMarket.Controllers
             return RedirectToAction("CategoryView");
         }
         [HttpPost]
-        public async Task<IActionResult> DeleteCategory(Category category)
+        public async Task<IActionResult> DeleteCategory(int id)
         {
-            await _categoryManager.Delete(category.Id);
+            await _categoryManager.Delete(id);
             return RedirectToAction("CategoryView");
         }
         [HttpPost]

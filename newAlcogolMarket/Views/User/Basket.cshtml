@@ -1,18 +1,39 @@
 ﻿@model List<BasketItem>
+<head>
+	<meta charset="utf-8">
+        <link href="site.css" rel="stylesheet">
+        <style>
+        .basket{
+            text-align: center;
+        }
+        </style>
+        <title>BEDOLAGI-Корзина</title>
+</head>
 <body>
+	<audio src="https://d9olupt5igjta.cloudfront.net/samples/sample_files/21999/a97133c8b3525c510265dc77272fd5874da7337a/mp3/_Impact_2.mp3?1540417944" autoplay></audio>
+    <p class="basket">Список покупок:</p>
 	<div>
 		<table>
 		@foreach(var item in Model)
 		{
+			<div class="text1">
 		<a>
 			@item.Product.Name
-		</a>
-		<a>
+		</a></div>
+		<div class="text2"><a>
 			@item.Product.Price
-		</a>
+		</a></div>
+		<div class="text3">
+			<form asp-action="Delete" asp-controller="BasketItem" asp-route-Id=@item.Id>
+		<button>Удалить</button>
+		</form>
+		</div>
+		<br>
 		}
 		</table>
 	</div>
 	<a>@ViewBag.TotalAmount</a>
-	<button>Оплатить</button>
+	<form asp-action="Pay" asp-controller="BasketItem">
+	<input type="submit" value="Оплатить"/>
+	</form>
 </body>

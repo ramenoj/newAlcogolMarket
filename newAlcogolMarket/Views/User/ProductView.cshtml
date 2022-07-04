@@ -39,8 +39,17 @@
     </p>
     <input type="submit" value="Добавить" />
 </form>
+<div class="somecontainer">
+    <nav class="leftmenu">
+        <a asp-action="ProductView">Products</a><br />
+        <a asp-action="CategoryView">Categories</a><br />
+        <a asp-action="UserView">Users</a><br />
+        <a asp-action="SnackView">Snacks</a><br/>
+        <a asp-action="SizeView">Sizes</a><br/>
+        <a asp-action="CountryView">Countries</a><br/>
+    </nav>
+</div>
 <br />
-
 @*<h3>Поиск по:</h3>
 <form asp-action="Milks" method="post" style="display:flex;">
     <p>
@@ -76,7 +85,7 @@
             <td>@item.Strenght</td>
             <td>@item.Country.Name</td>
             <td>@item.Image</td>
-            <td style="position: relative;box-sizing: border-box; left: 100px; top: 0px;">
+            <td style="position: relative;box-sizing: border-box;left:250; top: 0px;">
                 <form asp-controller="User" asp-action="DeleteProduct" method="post" asp-route-id="@item.Id" style="display:flex;">
                     <input type="submit" value="Удалить">
                 </form>
@@ -90,12 +99,16 @@
                          <input type="text" name="Price" />
                     </p>
                     <p>
+                        <label>Raiting</label><br />
+                         <input type="text" name="Raiting" />
+                    </p>
+                    <p>
                         <label>Category</label><br />
-                         <input type="text" name="Category.Name" />
+                         <input type="text" name="CategoryId" />
                     </p>
                     <p>
                         <label>Size</label><br />
-                         <input type="text" name="Size.Volume" />
+                         <input type="text" name="SizeId" />
                     </p>
                     <p>
                         <label>Strenght</label><br />
@@ -103,7 +116,7 @@
                     </p>
                     <p>
                         <label>Country</label><br />
-                         <input type="text" name="Country.Name" />
+                         <input type="text" name="CountryId" />
                     </p>
                         <input type="submit" value="Сохранить" />
                 </form>
